@@ -25,15 +25,18 @@ function setup() {
 
 function update() {
   if (count == 0) {
-    attractor[0].mass = random(windowHeight/30, windowHeight/3);
+    attractor[0].mass = random(((windowWidth+windowHeight)/2)/4);
     stateVar = round(random(0, 3));
     state = 0;
     if (stateVar == 3) {
       state = 1;
     }
-    bgcol[0] = round(random(0,255));
-    bgcol[1] = round(random(0,255));
-    bgcol[2] = round(random(0,255));
+    bgcol[0] = round(random(0,1))*255;
+    bgcol[1] = bgcol[0];
+    bgcol[2] = bgcol[0];
+    // bgcol[0] = round(random(0,255));
+    // bgcol[1] = round(random(0,255));
+    // bgcol[2] = round(random(0,255));
     countMax = round(random(1, 100));
   }
   for (var j = 0; j < attractor.length; j++) {
@@ -55,14 +58,14 @@ function draw() {
   // blendMode(ADD);
   // background(bgcol,255);
   noStroke();
-  fill(bgcol[0],bgcol[1],bgcol[2],10);
+  fill(bgcol[0],bgcol[1],bgcol[2],5);
   rect(-windowWidth,-windowHeight,windowWidth*2,windowHeight*2);  
+  attractor[0].display(state, bgcol[0],bgcol[1],bgcol[2], 5);
   for (var i = 0; i < 5000; i++) {
     movers[i].checkEdges();
     movers[i].update();
-    movers[i].display(bgcol[0],bgcol[1],bgcol[2],255);
+    movers[i].display(255-bgcol[0],255-bgcol[1],255-bgcol[2],255);
   }
-  attractor[0].display(state, 255-bgcol[0],255-bgcol[1],255-bgcol[2], 1);
 }
 
 function windowResized() {
