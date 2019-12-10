@@ -66,9 +66,11 @@ class Mover {
   }
 
   // Draw Mover
-  display(col0,col1,col2, alpha) {
+  display(col0,col1,col2, alpha,attractor) {
     noStroke();
-    fill(col0,col1,col2,alpha);
+    if(this.location.dist(attractor.location) > attractor.mass){
+      fill(col0,col1,col2,alpha);
+    } else { fill(255-col0,255-col1,255-col2,alpha);}
     ellipse(this.location.x, this.location.y, this.mass, this.mass);
   }
 
