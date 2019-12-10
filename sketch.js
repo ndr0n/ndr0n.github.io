@@ -56,7 +56,6 @@ function update() {
 
 function draw() {
   update();
-  blendMode(ADD);
   noStroke();
   fill(bgcol[0],bgcol[1],bgcol[2],10);
   rect(-windowWidth,-windowHeight,windowWidth*2,windowHeight*2);  
