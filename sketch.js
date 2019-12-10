@@ -38,6 +38,7 @@ function update() {
     // bgcol[1] = round(random(0,255));
     // bgcol[2] = round(random(0,255));
     countMax = round(random(1, 100));
+    // background(bgcol[0]);
   }
   for (var j = 0; j < attractor.length; j++) {
     for (var i = 0; i < movers.length; i++) {
