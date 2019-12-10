@@ -57,9 +57,9 @@ function draw() {
   update();
   blendMode(ADD);
   noStroke();
-  fill(bgcol[0],bgcol[1],bgcol[2],5);
+  fill(bgcol[0],bgcol[1],bgcol[2],10);
   rect(-windowWidth,-windowHeight,windowWidth*2,windowHeight*2);  
-  attractor[0].display(state, 255-bgcol[0],255-bgcol[1],255-bgcol[2], 5);
+  attractor[0].display(state, 255-bgcol[0],255-bgcol[1],255-bgcol[2], 1);
   for (var i = 0; i < 5000; i++) {
     movers[i].checkEdges();
     movers[i].update();
