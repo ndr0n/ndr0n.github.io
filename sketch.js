@@ -10,17 +10,17 @@ function setup() {
 }
 
 function draw() {
-  size = (windowWidth + windowHeight) / 2;
+  size = (windowWidth+windowHeight)/2;
   background(0);
-  image(black, windowWidth / 32, windowHeight / 32, size / 4, size / 4);
-  if(mouseX>windowWidth/32 && mouseX<(windowWidth/32)+size/4 && mouseY>windowHeight/32 && mouseY<(windowHeight/32)+size/4){
+  image(black, size/32, size/32, size/4, size/4);
+  if(mouseX>size/32 && mouseX<(size/32)+size/4 && mouseY>size/32 && mouseY<(size/32)+size/4){
     fill(255);
-    text("Black (EP)",windowWidth/16,windowHeight/16);
+    text("Black (EP)",(size/32)+size/32, (size/32)+size/32);
   }
 }
 
 function mousePressed(){
-  if(mouseX>windowWidth/32 && mouseX<(windowWidth/32)+size/4 && mouseY>windowHeight/32 && mouseY<(windowHeight/32)+size/4){
+  if(mouseX>size/32 && mouseX<(size/32)+size/4 && mouseY>size/32 && mouseY<(size/32)+size/4){
     window.open("https://tt-ndr0n.bandcamp.com/");
   }
 }
