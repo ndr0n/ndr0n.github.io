@@ -22,16 +22,16 @@ function draw() {
   rect(0, 0, side, side);
   
   if(page==0){fill(255);stroke(255);}
-  rect(size/32,0,side*4,side);
+  rect(size/32,0,side*5,side);
   fill(0);stroke(255);
   if(page==1){fill(255);stroke(255);}
-  rect(size/32+side*4,0,side*4, side);
+  rect(size/32+side*5,0,side*5, side);
   fill(0);stroke(255);
   if(page==2){fill(255);stroke(255);}
-  rect(size/32+side*8,0,side*4, side);
+  rect(size/32+side*10,0,side*5, side);
   fill(0);stroke(255);
   if(page==3){fill(255);stroke(255);}
-  rect(size/32+side*12,0,side*4, side);
+  rect(size/32+side*15,0,side*5, side);
   fill(0);stroke(255);
   
   textSize(size / 64);
@@ -40,13 +40,13 @@ function draw() {
   text("Releases", side + (size / 32), size / 48);
   fill(255);stroke(0);
   if(page==1){fill(0);stroke(255);}
-  text("Events", side + side*4 + (size / 32), size / 48);
+  text("Events", side + side*5 + (size / 32), size / 48);
   fill(255);stroke(0);
   if(page==2){fill(0);stroke(255);}
-  text("About", side + side*8 + (size / 32), size / 48);
+  text("About", side + side*10 + (size / 32), size / 48);
   fill(255);stroke(0);
   if(page==3){fill(0);stroke(255);}
-  text("Contact", side + side*12 + (size / 32), size / 48);
+  text("Contact", side + side*15 + (size / 32), size / 48);
   fill(255);stroke(0);
   
   if (page == 0) {
@@ -58,8 +58,8 @@ function draw() {
   
   if(page == 1){
     text("Future:",side*2,side*3);
-    text("- Portugal - Lisbon - Adao - Máquina Alienígena - 22:00-3:00 \n  https://www.facebook.com/events/481577472562415/",side*2,side*4);
-    text("- Portugal - Lisbon - 5A - TBA - 5:00-1:00",side*2,side*6);
+    text("- 25.01.2020 - Portugal - Lisbon - Adao - Máquina Alienígena - 22:00-3:00 \n  https://www.facebook.com/events/481577472562415/",side*2,side*4);
+    text("- 01.03.2020 - Portugal - Lisbon - 5A - TBA - 5:00-1:00",side*2,side*6);
   }
   
   if(page == 2){
@@ -76,16 +76,16 @@ function draw() {
 
 function mousePressed() {
   if(mouseY < side){
-    if(mouseX > size/32 && mouseX < size/32+side*4){
+    if(mouseX > size/32 && mouseX < size/32+side*5){
       page = 0;
     }
-    if(mouseX > size/32+side*4 && mouseX < size/32+side*4+side*4){
+    if(mouseX > size/32+side*5 && mouseX < size/32+side*5+side*5){
       page = 1;
     }
-    if(mouseX > size/32+side*8 && mouseX < size/32+side*8+side*4){
+    if(mouseX > size/32+side*10 && mouseX < size/32+side*10+side*5){
       page = 2;
     }
-    if(mouseX > size/32+side*12 && mouseX < size/32+side*12+side*4){
+    if(mouseX > size/32+side*15 && mouseX < size/32+side*15+side*5){
       page = 3;
     }
   }
