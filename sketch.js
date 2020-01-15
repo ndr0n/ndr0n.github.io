@@ -1,4 +1,4 @@
-let page = 3;
+let page = 0;
 let side, size, filt;
 let black;
 
@@ -63,7 +63,7 @@ function draw() {
   }
   
   if(page == 2){
-    text("   ndr0n is an audiovisual project, designed by Afonso Proenca, from Lisbon, Portugal.\n   The aesthetic emerges from the mechanical routines present in modern society,\n aluding to a dark reality where meaning is fabricated and behaviour is scripted. \n   Inspired by concepts such as TransHumanism and Technological Singularity, \n the artist attempts to sonify the personification of self-conscious machines.",side*2,side*3); 
+    text("ndr0n is an audiovisual project, designed by Afonso Proenca, from Lisbon, Portugal.\nThe aesthetic emerges from the mechanical routines present in modern society,\naluding to a dark reality where meaning is fabricated and behaviour is scripted.\nInspired by concepts such as TransHumanism and Technological Singularity,\nthe artist attempts to sonify the personification of self-conscious machines.",side*2,side*3); 
   }
   
   if(page == 3){
