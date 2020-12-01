@@ -1,7 +1,9 @@
 function sketch(parent) {
   return function (p) {
-    var black,white;
+    
     var canvas;
+    var bgHeightMin,bgHeightMax,bgWidthMin,bgWidthMax;
+    var black,white;
     let page = 0;
     let oldPage = 0;
     let panHeight = 0;
@@ -23,16 +25,17 @@ function sketch(parent) {
       p.background(0, 10);
       p.textSize(((p.width*0.025)+(p.height*0.025))/2);
       //Background Animation
+
       p.stroke(255);
       p.strokeWeight(1);
       let r = p.floor(p.random(10));
       if (r < 2) {
         if (r == 0) {
-          let rh = p.random(p.height * 0.95) + (p.height * 0.05);
+          let rh = p.random(p.height * 0.95) + (bgHeightMin);
           p.line(0, rh, p.width, rh);
         } else if (r == 1) {
           let rw = p.random(p.width);
-          p.line(rw, p.height * 0.05, rw, p.height);
+          p.line(rw,bgHeightMin, rw, p.height);
         }
       }
 
@@ -80,6 +83,7 @@ function sketch(parent) {
         else{
           panHeight+=10;
         }
+        bgHeightMin=panHeight;
       }
       if(panShrink){
         if(panHeight<=0){
@@ -88,6 +92,7 @@ function sketch(parent) {
         } else {
           panHeight-=10;
         }
+        bgHeightMin=panHeight;
       }
       //Draw Tab Panel
       p.fill(0);
@@ -139,9 +144,9 @@ function sketch(parent) {
 
       if(page==1){
         if(p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.06 && p.mouseY<p.height*0.29){
-          p.window.open("https://tt-ndr0n.bandcamp.com/album/black-ep");
+          p.window.open('https://tt-ndr0n.bandcamp.com/album/black-ep');
         } else if (p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.31 && p.mouseY<p.height*0.54){
-          p.window.open("https://tt-ndr0n.bandcamp.com/album/white-2");
+          p.window.open('https://tt-ndr0n.bandcamp.com/album/white-2');
         }
       }
       // parent.$emit('update:x', p.round(p.mouseX));
@@ -158,6 +163,9 @@ function sketch(parent) {
       p.rectMode(p.CENTER);
       if(panShow){
         panHeight = p.height*0.5;
+        bgHeightMin=panHeight;
+      } else {
+        bgHeightMin=p.height*0.05;
       }
     }
   };
