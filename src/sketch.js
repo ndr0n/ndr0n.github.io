@@ -50,7 +50,7 @@ function sketch(parent) {
       p.rect(p.width * 0.75, 0, p.width * 0.25, p.height * 0.05);
       //NavBarText
       p.noStroke();
-      p.textSize(p.width * 0.025);
+      p.textSize(((p.width*0.025)+(p.height*0.025))/2);
       if (page == 1) { p.fill(0); }
       else { p.fill(255); }
       p.text("Audio", p.width * 0.01, p.height * 0.04);
@@ -154,7 +154,7 @@ function sketch(parent) {
     };
 
     resizeWindow = function () {
-      canvas = p.createCanvas(p.windowWidth * 0.95, p.windowHeight * 0.95);
+      canvas = p.createCanvas(p.windowWidth * 0.99, p.windowHeight * 0.99);
       canvas.parent(parent.$el);
       p.rectMode(p.CENTER);
       if(panShow){
