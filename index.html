@@ -1,12 +1,37 @@
-<!DOCTYPE html><html><head>
-    <script src="p5.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html>
 
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-  
+<head>
+  <link rel="stylesheet" href="./src/style.css">
+  <title>NDR0N</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Afonso Proenca">
+  <meta name="keywords" content="NDR0N">
+  <meta name="description" content="Ndr0n Official Website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+</head>
 
-</body></html>
+<body style="padding:0px;margin:0px">
+  <div id="root">
+    <!-- <nav> -->
+      <!-- Home | Releases | Videos | Live | -->
+    <!-- </nav> -->
+
+    <!-- <h1>Two Way Binding Example</h1> -->
+    <!-- <h2>Slide me!</h2> -->
+    <!-- Some input elements that are bound to data -->
+    <!-- <input type="range" min="0" max="400" step="1" v-model="data.x" ></input> -->
+    <!-- <input type="range" min="0" max="200" step="1" v-model="data.y"> </input> -->
+    <!-- <h2>Edit me!</h2> -->
+    <!-- Some input textboxes that are bound to data -->
+    <!-- x: <input v-model="data.x"> -->
+    <!-- y: <input v-model="data.y"> -->
+    <!-- <h3>The value of x is {{data.x}} and y is {{data.y}}.</h3> -->
+
+    <p5 src="./sketch.js" :data="data" v-bind.sync="data"></p5>
+  </div>
+  <script src="vueP5.js"></script>
+</body>
+</html>

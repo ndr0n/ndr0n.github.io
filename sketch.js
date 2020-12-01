@@ -1,103 +1,135 @@
-let page = 0;
-let side, size, filt;
-let black;
+function sketch(parent) {
+  return function (p) {
+    var canvas;
+    let page = 0;
+    let oldPage = 0;
+    let panHeight = 0;
+    let panShow = false;
+    let panGrow = false;
+    let panShrink = false;
 
-function preload() {
-  black = loadImage("Black.jpg");
-}
-
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(0);
-}
-
-function draw() {
-  size = (windowWidth+windowHeight)/2;
-  side = (size / 32);
-  background(0);
-  fill(0);
-  stroke(255);
-  rect(0, 0, windowWidth, side);
-  rect(0, 0, side, windowHeight);
-  rect(0, 0, side, side);
-  
-  if(page==0){fill(255);stroke(255);}
-  rect(size/32,0,side*5,side);
-  fill(0);stroke(255);
-  if(page==1){fill(255);stroke(255);}
-  rect(size/32+side*5,0,side*5, side);
-  fill(0);stroke(255);
-  if(page==2){fill(255);stroke(255);}
-  rect(size/32+side*10,0,side*5, side);
-  fill(0);stroke(255);
-  if(page==3){fill(255);stroke(255);}
-  rect(size/32+side*15,0,side*5, side);
-  fill(0);stroke(255);
-  
-  textSize(size / 64);
-  fill(255);stroke(0);
-  if(page==0){fill(0);stroke(255);}
-  text("Releases", side + (size / 32), size / 48);
-  fill(255);stroke(0);
-  if(page==1){fill(0);stroke(255);}
-  text("Events", side + side*5 + (size / 32), size / 48);
-  fill(255);stroke(0);
-  if(page==2){fill(0);stroke(255);}
-  text("About", side + side*10 + (size / 32), size / 48);
-  fill(255);stroke(0);
-  if(page==3){fill(0);stroke(255);}
-  text("Contact", side + side*15 + (size / 32), size / 48);
-  fill(255);stroke(0);
-  
-  if (page == 0) {
-    image(black, side + (size / 32), side + (size / 32), size / 4, size / 4);
-    if (mouseX > side + size / 32 && mouseX < side + (size / 32) + size / 4 && mouseY > side + (size / 32) && mouseY < side + (size / 32) + size / 4) {
-      text("Black (EP)", side + (size / 32) + size / 32, side + (size / 32) + size / 32);
-    }
-  }
-  
-  if(page == 1){
-    text("Future:",side*2,side*3);
-    text("- 25.01.2020 - Portugal - Lisbon - Adao - Máquina Alienígena - 22:00-3:00 \n  https://www.facebook.com/events/481577472562415/",side*2,side*4);
-    text("- 01.03.2020 - Portugal - Lisbon - 5A - TBA - 5:00-1:00",side*2,side*6);
-  }
-  
-  if(page == 2){
-    text("ndr0n is an audiovisual project, designed by Afonso Proenca, from Lisbon, Portugal.\nThe aesthetic emerges from the mechanical routines present in modern society,\naluding to a dark reality where meaning is fabricated and behaviour is scripted.\nInspired by concepts such as TransHumanism and Technological Singularity,\nthe artist attempts to sonify the personification of self-conscious machines.",side*2,side*3); 
-  }
-  
-  if(page == 3){
-    text("Contact: ndr0n.pc@gmail.com",side*2,side*3); 
-  }
-  
-  if (filt == 1) {filter(INVERT);}
-  filt = 0;
-}
-
-function mousePressed() {
-  if(mouseY < side){
-    if(mouseX > size/32 && mouseX < size/32+side*5){
+    p.setup = function () {
+      resizeWindow();
       page = 0;
-    }
-    if(mouseX > size/32+side*5 && mouseX < size/32+side*5+side*5){
-      page = 1;
-    }
-    if(mouseX > size/32+side*10 && mouseX < size/32+side*10+side*5){
-      page = 2;
-    }
-    if(mouseX > size/32+side*15 && mouseX < size/32+side*15+side*5){
-      page = 3;
-    }
-  }
-  
-  if(page == 0){
-    if (mouseX > side + size / 32 && mouseX < side + (size / 32) + size / 4 && mouseY > side + (size / 32) && mouseY < side + (size / 32) + size / 4) {
-      window.open("https://tt-ndr0n.bandcamp.com/");
-      filt = 1;
-    }
-  }
-}
+    };
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+    p.draw = function () {
+      p.background(0, 10);
+      
+      //Background Animation
+      p.stroke(255);
+      p.strokeWeight(1);
+      let r = p.floor(p.random(10));
+      if (r < 2) {
+        if (r == 0) {
+          let rh = p.random(p.height * 0.95) + (p.height * 0.05);
+          p.line(0, rh, p.width, rh);
+        } else if (r == 1) {
+          let rw = p.random(p.width);
+          p.line(rw, p.height * 0.05, rw, p.height);
+        }
+      }
+
+      //NavBarBoxes
+      p.stroke(255);
+      p.strokeWeight(1);
+      p.rectMode(p.CORNER);
+      p.fill((page == 1) * 255);
+      p.rect(0, 0, p.width * 0.25, p.height * 0.05);
+      p.fill((page == 2) * 255);
+      p.rect(p.width * 0.25, 0, p.width * 0.25, p.height * 0.05);
+      p.fill((page == 3) * 255);
+      p.rect(p.width * 0.5, 0, p.width * 0.25, p.height * 0.05);
+      p.fill((page == 4) * 255);
+      p.rect(p.width * 0.75, 0, p.width * 0.25, p.height * 0.05);
+      //NavBarText
+      p.noStroke();
+      p.textSize(p.width * 0.025);
+      if (page == 1) { p.fill(0); }
+      else { p.fill(255); }
+      p.text("Audio", p.width * 0.01, p.height * 0.04);
+      if (page == 2) { p.fill(0); }
+      else { p.fill(255); }
+      p.text("Video", p.width * 0.26, p.height * 0.04);
+      if (page == 3) { p.fill(0); }
+      else { p.fill(255); }
+      p.text("Live", p.width * 0.51, p.height * 0.04);
+      if (page == 4) { p.fill(0); }
+      else { p.fill(255); }
+      p.text("Contact", p.width * 0.76, p.height * 0.04);
+
+      //Open Panel Animations
+      if(page!=0&&oldPage==0){
+        panGrow = true;
+        panShrink = false;
+      } else if(page==0&&oldPage!=0){
+        panGrow = false;
+        panShrink = true;
+        panShow = false;
+      }
+      if(panGrow){
+        if(panHeight<p.height*0.45){
+          panHeight+=10;
+        } else {
+          panHeight = p.height*0.45;
+          panGrow = false;
+          panShow = true;
+        }
+      }
+      if(panShrink){
+        if(panHeight>0){
+          panHeight-=10;
+        } else {
+          panHeight = 0;
+          panShrink = false;
+        }
+      }
+      //Draw Tab Panel
+      p.fill(0);
+      p.stroke(255);
+      p.strokeWeight(1);
+      p.rect(0,p.height*0.05,p.width,panHeight);
+
+      if(panShow){
+        p.fill(255);
+        p.noStroke();
+        if(page==1){
+          p.text("Releases:",p.width*0.01,p.height*0.1);
+        }
+      }
+
+      oldPage = page;
+    };
+
+    p.mouseClicked = function () {
+      if (p.mouseX > 0 && p.mouseX < p.width * 0.25 && p.mouseY > 0 && p.mouseY < p.height * 0.05) {
+        if (page == 1) { page = 0; }
+        else { page = 1; }
+      }
+      else if (p.mouseX > p.width * 0.25 && p.mouseX < p.width * 0.5 && p.mouseY > 0 && p.mouseY < p.height * 0.05) {
+        if (page == 2) { page = 0; }
+        else { page = 2; }
+      }
+      else if (p.mouseX > p.width * 0.5 && p.mouseX < p.width * 0.75 && p.mouseY > 0 && p.mouseY < p.height * 0.05) {
+        if (page == 3) { page = 0; }
+        else { page = 3; }
+      }
+      else if (p.mouseX > p.width * 0.75 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height * 0.05) {
+        if (page == 4) { page = 0; }
+        else { page = 4; }
+      }
+      // parent.$emit('update:x', p.round(p.mouseX));
+      // parent.$emit('update:y', p.round(p.mouseY));
+    };
+
+    p.windowResized = function () {
+      resizeWindow();
+    };
+
+    resizeWindow = function () {
+      canvas = p.createCanvas(p.windowWidth * 0.95, p.windowHeight * 0.95);
+      canvas.parent(parent.$el);
+      p.rectMode(p.CENTER);
+    }
+  };
 }
