@@ -21,7 +21,7 @@ function sketch(parent) {
 
     p.draw = function () {
       p.background(0, 10);
-      
+      p.textSize(((p.width*0.025)+(p.height*0.025))/2);
       //Background Animation
       p.stroke(255);
       p.strokeWeight(1);
@@ -50,7 +50,6 @@ function sketch(parent) {
       p.rect(p.width * 0.75, 0, p.width * 0.25, p.height * 0.05);
       //NavBarText
       p.noStroke();
-      p.textSize(((p.width*0.025)+(p.height*0.025))/2);
       if (page == 1) { p.fill(0); }
       else { p.fill(255); }
       p.text("Audio", p.width * 0.01, p.height * 0.04);
@@ -74,20 +73,20 @@ function sketch(parent) {
         panShow = false;
       }
       if(panGrow){
-        if(panHeight<p.height*0.5){
-          panHeight+=10;
-        } else {
-          panHeight = p.height*0.5;
+        if(panHeight>=p.height*0.5) {
           panGrow = false;
           panShow = true;
         }
+        else{
+          panHeight+=10;
+        }
       }
       if(panShrink){
-        if(panHeight>0){
-          panHeight-=10;
-        } else {
-          panHeight = 0;
+        if(panHeight<=0){
           panShrink = false;
+          panShow = false;
+        } else {
+          panHeight-=10;
         }
       }
       //Draw Tab Panel
