@@ -7,6 +7,19 @@ body {
   font-size: 14px;
 }
 
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  height:5vh;
+  font-size:14px;
+}
+
+td{
+  width:25vw;
+}
+
 hl {
   margin:0;
   padding:0;
