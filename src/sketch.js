@@ -120,7 +120,6 @@ function sketch(parent) {
           p.text("email: ndr0n.pc@gmail.com",p.width*0.02,p.height*0.1);
         }
       }
-
       oldPage = page;
     };
 
@@ -144,9 +143,9 @@ function sketch(parent) {
 
       if(page==1){
         if(p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.06 && p.mouseY<p.height*0.29){
-          p.window.open('https://tt-ndr0n.bandcamp.com/album/black-ep');
+          window.open('https://tt-ndr0n.bandcamp.com/album/black-ep');
         } else if (p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.31 && p.mouseY<p.height*0.54){
-          p.window.open('https://tt-ndr0n.bandcamp.com/album/white-2');
+          window.open('https://tt-ndr0n.bandcamp.com/album/white-2');
         }
       }
       // parent.$emit('update:x', p.round(p.mouseX));
