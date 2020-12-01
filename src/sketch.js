@@ -1,5 +1,6 @@
 function sketch(parent) {
   return function (p) {
+    var black,white;
     var canvas;
     let page = 0;
     let oldPage = 0;
@@ -7,6 +8,11 @@ function sketch(parent) {
     let panShow = false;
     let panGrow = false;
     let panShrink = false;
+
+    p.preload = function() {
+      black = p.loadImage('./assets/Black.jpg');
+      white = p.loadImage('./assets/White.jpg');
+    };
 
     p.setup = function () {
       resizeWindow();
@@ -68,10 +74,10 @@ function sketch(parent) {
         panShow = false;
       }
       if(panGrow){
-        if(panHeight<p.height*0.45){
+        if(panHeight<p.height*0.5){
           panHeight+=10;
         } else {
-          panHeight = p.height*0.45;
+          panHeight = p.height*0.5;
           panGrow = false;
           panShow = true;
         }
@@ -90,11 +96,27 @@ function sketch(parent) {
       p.strokeWeight(1);
       p.rect(0,p.height*0.05,p.width,panHeight);
 
+
       if(panShow){
         p.fill(255);
         p.noStroke();
         if(page==1){
-          p.text("Releases:",p.width*0.01,p.height*0.1);
+          // p.createA('https://tt-ndr0n.bandcamp.com/album/black-ep',"");
+          
+          p.image(black,p.width*0.01,p.height*0.06,p.width*0.23,p.height*0.23);
+          if(p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.06 && p.mouseY<p.height*0.29){
+            p.fill(255);
+            p.text("Black (TT010)",p.width*0.05,p.height*0.1);
+          }
+          p.image(white,p.width*0.01,p.height*0.31,p.width*0.23,p.height*0.23);
+          if(p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.31 && p.mouseY<p.height*0.54){
+            p.fill(0);
+            p.text("White (TT014)",p.width*0.05,p.height*0.35);
+          }
+        } else if(page==4){
+          p.fill(255);
+          p.noStroke();
+          p.text("email: ndr0n.pc@gmail.com",p.width*0.02,p.height*0.08);
         }
       }
 
@@ -118,6 +140,14 @@ function sketch(parent) {
         if (page == 4) { page = 0; }
         else { page = 4; }
       }
+
+      if(page==1){
+        if(p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.06 && p.mouseY<p.height*0.29){
+          p.window.open("https://tt-ndr0n.bandcamp.com/album/black-ep");
+        } else if (p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.31 && p.mouseY<p.height*0.54){
+          p.window.open("https://tt-ndr0n.bandcamp.com/album/white-2");
+        }
+      }
       // parent.$emit('update:x', p.round(p.mouseX));
       // parent.$emit('update:y', p.round(p.mouseY));
     };
@@ -130,6 +160,9 @@ function sketch(parent) {
       canvas = p.createCanvas(p.windowWidth * 0.95, p.windowHeight * 0.95);
       canvas.parent(parent.$el);
       p.rectMode(p.CENTER);
+      if(panShow){
+        panHeight = p.height*0.5;
+      }
     }
   };
 }

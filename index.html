@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/vue"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>  
 </head>
 
 <body style="padding:0px;margin:0px">
@@ -30,8 +31,8 @@
     <!-- y: <input v-model="data.y"> -->
     <!-- <h3>The value of x is {{data.x}} and y is {{data.y}}.</h3> -->
 
-    <p5 src="./sketch.js" :data="data" v-bind.sync="data"></p5>
+    <p5 src="./src/sketch.js" :data="data" v-bind.sync="data"></p5>
   </div>
-  <script src="vueP5.js"></script>
+  <script src="./src/vueP5.js"></script>
 </body>
 </html>
