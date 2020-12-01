@@ -113,7 +113,7 @@ function sketch(parent) {
         } else if(page==4){
           p.fill(255);
           p.noStroke();
-          p.text("email: ndr0n.pc@gmail.com",p.width*0.02,p.height*0.08);
+          p.text("email: ndr0n.pc@gmail.com",p.width*0.02,p.height*0.09);
         }
       }
 
