@@ -96,13 +96,10 @@ function sketch(parent) {
       p.strokeWeight(1);
       p.rect(0,p.height*0.05,p.width,panHeight);
 
-
       if(panShow){
         p.fill(255);
         p.noStroke();
-        if(page==1){
-          // p.createA('https://tt-ndr0n.bandcamp.com/album/black-ep',"");
-          
+        if(page==1){          
           p.image(black,p.width*0.01,p.height*0.06,p.width*0.23,p.height*0.23);
           if(p.mouseX>p.width*0.01 && p.mouseX<p.width*0.24 && p.mouseY>p.height*0.06 && p.mouseY<p.height*0.29){
             p.fill(255);
