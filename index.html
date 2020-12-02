@@ -16,23 +16,23 @@
   <div id="app" style="width:100vw;height:100vh;">
     <table>
       <tr>
-        <template v-if="currentPage==1"><td v-on:click="setPage(0)" style="background-color:white;color:black;">&nbsp Audio </td></template>
-        <template v-else><td v-on:click="setPage(1)">&nbsp Audio</td></template>
-        <template v-if="currentPage==2"><td v-on:click="setPage(0)" style="background-color:white;color:black;">&nbsp Video </td></template>
-        <template v-else><td v-on:click="setPage(2)">&nbsp Video</td></template>
-        <template v-if="currentPage==3"><td v-on:click="setPage(0)" style="background-color:white;color:black;">&nbsp Live </td></template>
-        <template v-else><td v-on:click="setPage(3)">&nbsp Live</td></template>
-        <template v-if="currentPage==4"><td v-on:click="setPage(0)" style="background-color:white;color:black;">&nbsp Contact </td></template>
-        <template v-else><td v-on:click="setPage(4)">&nbsp Contact</td></template>
+        <template v-if="currentPage==1"><td v-on:click="setPage(0)" style="background-color:white;color:black;">&nbsp About </td></template>
+        <template v-else><td v-on:click="setPage(1)">&nbsp About</td></template>
+        <template v-if="currentPage==2"><td v-on:click="setPage(0)" style="background-color:white;color:black;">&nbsp Audio </td></template>
+        <template v-else><td v-on:click="setPage(2)">&nbsp Audio</td></template>
+        <template v-if="currentPage==3"><td v-on:click="setPage(0)" style="background-color:white;color:black;">&nbsp Video </td></template>
+        <template v-else><td v-on:click="setPage(3)">&nbsp Video</td></template>
+        <template v-if="currentPage==4"><td v-on:click="setPage(0)" style="background-color:white;color:black;">&nbsp Live </td></template>
+        <template v-else><td v-on:click="setPage(4)">&nbsp Live</td></template>
       </tr>
     </table>
 
     <template v-if="panOpen==true">
       <div :style="{height:panHeight+'vh'}" style="border-bottom:1px solid white;">
-        <template v-if="currentPage==1"><iframe src="./src/Audio.html" height="100%" width="100%" style="border:0px;"></iframe></template>
-        <template v-if="currentPage==2"><iframe src="./src/Video.html" height="100%" width="100%" style="border:0px;"></iframe></template>
-        <template v-if="currentPage==3"><iframe src="./src/Live.html" height="100%" width="100%" style="border:0px;"></iframe></template>
-        <template v-if="currentPage==4"><iframe src="./src/Contact.html" height="100%" width="100%" style="border:0px;"></iframe></template>
+        <template v-if="currentPage==1"><iframe src="./src/About.html" height="100%" width="100%" style="border:0px;"></iframe></template>
+        <template v-if="currentPage==2"><iframe src="./src/Audio.html" height="100%" width="100%" style="border:0px;"></iframe></template>
+        <template v-if="currentPage==3"><iframe src="./src/Video.html" height="100%" width="100%" style="border:0px;"></iframe></template>
+        <template v-if="currentPage==4"><iframe src="./src/Live.html" height="100%" width="100%" style="border:0px;"></iframe></template>
       </div>
     </template>
     
@@ -43,5 +43,4 @@
   </div>
   <script src="./src/main.js"></script>
 </body>
-
 </html>
