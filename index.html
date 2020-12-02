@@ -29,17 +29,16 @@
 
     <template v-if="panOpen==true">
       <div :style="{height:panHeight+'vh'}" style="border-bottom:1px solid white;">
-        <template v-if="currentPage==1">
-          <iframe src="./src/Audio.html" height="100%" width="100%" style="border:0px;">
-          <!-- <a href="https://tt-ndr0n.bandcamp.com/album/black-ep"><img src="./assets/Black.jpg" style="margin:2vw;height:20vh;"></img></a> -->
-          <!-- <br> -->
-          <!-- <a href="https://tt-ndr0n.bandcamp.com/album/white-2 "><img src="./assets/White.jpg" style="margin:2vw;height:20vh;"></img></a> -->
-          </iframe>
-        </template>
+        <template v-if="currentPage==1"><iframe src="./src/Audio.html" height="100%" width="100%" style="border:0px;"></iframe></template>
+        <template v-if="currentPage==2"><iframe src="./src/Video.html" height="100%" width="100%" style="border:0px;"></iframe></template>
+        <template v-if="currentPage==3"><iframe src="./src/Live.html" height="100%" width="100%" style="border:0px;"></iframe></template>
+        <template v-if="currentPage==4"><iframe src="./src/Contact.html" height="100%" width="100%" style="border:0px;"></iframe></template>
       </div>
     </template>
 
-    <iframe src="https://editor.p5js.org/afonsoproenca/embed/airhX6h8M" scrolling="no" width="100%" frameborder="0"
+    <!-- <iframe src="https://editor.p5js.org/afonsoproenca/embed/opBL65YKW"></iframe> -->
+
+    <iframe src="https://editor.p5js.org/afonsoproenca/embed/opBL65YKW" scrolling="no" width="100%" frameborder="0"
       style="overflow:hidden;" :style="{height:aniHeight+'vh'}"></iframe>
     </span>
 
