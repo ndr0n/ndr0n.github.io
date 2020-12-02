@@ -3,7 +3,7 @@ var app = new Vue({
     data: {
         currentPage: 0,
         panHeight: 0,
-        aniHeight: 94,
+        aniHeight: 90,
         movement: 0,
         panOpen: false,
     },
@@ -18,16 +18,16 @@ var app = new Vue({
         },
         setHeight(newHeight){
             this.panHeight = newHeight;
-            this.aniHeight = 94-this.panHeight;
+            this.aniHeight = 90-this.panHeight;
         },
         openPanel(){
             this.panHeight = 60;
-            this.aniHeight = 94 - this.panHeight;
+            this.aniHeight = 90 - this.panHeight;
             this.panOpen = true;
         },
         closePanel(){
             this.panHeight = 0;
-            this.aniHeight = 94 - this.panHeight;
+            this.aniHeight = 90 - this.panHeight;
             this.panOpen = false;
         }
     },
