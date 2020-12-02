@@ -21,13 +21,13 @@ var app = new Vue({
             this.aniHeight = 94-this.panHeight;
         },
         openPanel(){
-            this.aniHeight = 94/2;
-            this.panHeight = 94/2;
+            this.panHeight = 60;
+            this.aniHeight = 94 - this.panHeight;
             this.panOpen = true;
         },
         closePanel(){
-            this.aniHeight = 94;
             this.panHeight = 0;
+            this.aniHeight = 94 - this.panHeight;
             this.panOpen = false;
         }
     },
