@@ -38,15 +38,15 @@
         };
 
         let sketch = function (p) {
-            let human;
+            // let human;
             let sSpeed = 0.005;
             let hSpeed = 0.005;
             let hAlpha = 150;
             let sAlpha = 50;
 
-            p.preload = function () {
-                human = p.loadModel("assets/body.obj");
-            }
+            // p.preload = function () {
+                // human = p.loadModel("assets/body.obj");
+            // }
 
             p.setup = function () {
                 p.createCanvas(p.windowWidth*0.98, p.windowHeight*0.99, p.WEBGL);
@@ -60,16 +60,16 @@
 
                 for(i=0; i<2; i++)
                 {
-                    p.stroke(250, hAlpha);
-                    p.push();
-                    if(i == 0) p.translate(-p.width/4, 0);
-                    else if(i == 1) p.translate(p.width/4, 0);
-                    p.translate(0, p.height / 4 - (p.height / 32));
-                    p.rotateX(p.PI);
-                    p.rotateY(p.frameCount * hSpeed);
-                    p.scale(p.height / 13);
-                    p.model(human);
-                    p.pop();
+                    // p.stroke(250, hAlpha);
+                    // p.push();
+                    // if(i == 0) p.translate(-p.width/4, 0);
+                    // else if(i == 1) p.translate(p.width/4, 0);
+                    // p.translate(0, p.height / 4 - (p.height / 32));
+                    // p.rotateX(p.PI);
+                    // p.rotateY(p.frameCount * hSpeed);
+                    // p.scale(p.height / 13);
+                    // p.model(human);
+                    // p.pop();
 
                     p.stroke(250, sAlpha);
                     p.push();
