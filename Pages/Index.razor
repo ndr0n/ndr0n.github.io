@@ -36,113 +36,111 @@ else
     <br/>
     <br/> 
     <MudGrid>
-        <MudItem lg="6" md="12" Style="background:#222f; min-height: 90vh;">
-            <div id="unique_id_scroll_section" style="height:90vh; padding-top: 1%; padding-bottom: 1%; overflow: auto;">
-                @if (Page == Pages.Releases)
-                {
-                    <Album Title="IBMachine" Image="images/albums/IBMachine.jpg" Date="11/02/2022" Label="Kaptcha" Link="https://kaptchafail.bandcamp.com/album/ibmachine"
-                           Description="IBMachine is positioned at an intersection of emotion and apathy.
-                                        It explores this duality in the context of human designed machine utopia.
+        <MudItem lg="6" md="12" Style="background:#222f; min-height: 90vh; height: 90vh; padding: 1%; overflow-x: hidden; overflow-y: scroll;">
+            @if (Page == Pages.Releases)
+            {
+                <Album Title="IBMachine" Image="images/albums/IBMachine.jpg" Date="11/02/2022" Label="Kaptcha" Link="https://kaptchafail.bandcamp.com/album/ibmachine"
+                       Description="IBMachine is positioned at an intersection of emotion and apathy.
+                                    It explores this duality in the context of human designed machine utopia.
 
-                                        human emotion provokes reaction,
-                                        machine apathy invokes objectivity,
-                                        human seeks physical and mental experience,
-                                        Machine seeks mathematical optimization,
-                                        human learns from experience
-                                        machine learns from data
-                                        human envisions
-                                        machine obeys
-                                        human is
-                                        machine is">
-                    </Album>
+                                    human emotion provokes reaction,
+                                    machine apathy invokes objectivity,
+                                    human seeks physical and mental experience,
+                                    Machine seeks mathematical optimization,
+                                    human learns from experience
+                                    machine learns from data
+                                    human envisions
+                                    machine obeys
+                                    human is
+                                    machine is">
+                </Album>
+                <br/>
+                <Album Title="SyntHuman" Image="images/albums/SyntHuman.jpg" Date="16/12/2021" Label="Mãe Solteira Records" Link="https://ndr0n.bandcamp.com/album/synthuman"
+                       Description="SyntHuman describes a process of transformation: physical transformation by embracing machine as an extension of biology; digital transformation by allowing machine generated decisions to guide the human generated composition process.
+                                    
+                                    This EP is designed as an invocation to the destruction of dogma and to the acceptance of the beauty in the synergy between human and machine.">
+                </Album>
+                <br/>
+                <Album Title="White" Image="images/albums/White.jpg" Date="19/08/2020" Label="TruthTable" Link="https://ndr0n.bandcamp.com/album/white-2"
+                       Description="White exists in opposition to Black. Light cast upon Dark. Atonality uncovers melody, noise becomes harmony.
+                                    
+                                    Transcendence is obtained through digital symbiosis.
+                                    
+                                    Technology is evolution in a programable algorithmical system.
+                                    
+                                    Emotion is binary code and it can simulate nirvana.">
+                </Album>
+                <br/>
+                <Album Title="Black" Image="images/albums/Black.jpg" Date="18/03/2020" Label="TruthTable" Link="https://ndr0n.bandcamp.com/album/black"
+                       Description="Black is the result of a month’s long exploration into minimalism, texture and sound. The EP was composed while the artist was living in South
+                                    East London.
+                                    
+                                    Through generative and algorithmic techniques, compositions emerge that defy personal preconceptions of rhythm and melody. By recording and sequencing these moments, Black is an attempt to humanize these
+                                    mathematical processes.
+                                    
+                                    A mixture of analogue and digital sound sources, the artist utilizes the best of both worlds when looking for its sonic identity.">
+                </Album>
+            }
+            else if (Page == Pages.Videos)
+            {
+                <MudGrid>
+                    <Video Link="https://www.youtube.com/embed/ZlJ94DDySrA"/>
                     <br/>
-                    <Album Title="SyntHuman" Image="images/albums/SyntHuman.jpg" Date="16/12/2021" Label="Mãe Solteira Records" Link="https://ndr0n.bandcamp.com/album/synthuman"
-                           Description="SyntHuman describes a process of transformation: physical transformation by embracing machine as an extension of biology; digital transformation by allowing machine generated decisions to guide the human generated composition process.
-                                        
-                                        This EP is designed as an invocation to the destruction of dogma and to the acceptance of the beauty in the synergy between human and machine.">
-                    </Album>
+                    <Video Link="https://www.youtube.com/embed/NpIExH_onB4"/>
                     <br/>
-                    <Album Title="White" Image="images/albums/White.jpg" Date="19/08/2020" Label="TruthTable" Link="https://ndr0n.bandcamp.com/album/white-2"
-                           Description="White exists in opposition to Black. Light cast upon Dark. Atonality uncovers melody, noise becomes harmony.
-                                        
-                                        Transcendence is obtained through digital symbiosis.
-                                        
-                                        Technology is evolution in a programable algorithmical system.
-                                        
-                                        Emotion is binary code and it can simulate nirvana.">
-                    </Album>
+                    <Video Link="https://www.youtube.com/embed/2orRha30nGQ"/>
                     <br/>
-                    <Album Title="Black" Image="images/albums/Black.jpg" Date="18/03/2020" Label="TruthTable" Link="https://ndr0n.bandcamp.com/album/black"
-                           Description="Black is the result of a month’s long exploration into minimalism, texture and sound. The EP was composed while the artist was living in South
-                                        East London.
-                                        
-                                        Through generative and algorithmic techniques, compositions emerge that defy personal preconceptions of rhythm and melody. By recording and sequencing these moments, Black is an attempt to humanize these
-                                        mathematical processes.
-                                        
-                                        A mixture of analogue and digital sound sources, the artist utilizes the best of both worlds when looking for its sonic identity.">
-                    </Album>
-                }
-                else if (Page == Pages.Videos)
-                {
-                    <MudGrid>
-                        <Video Link="https://www.youtube.com/embed/ZlJ94DDySrA"/>
-                        <br/>
-                        <Video Link="https://www.youtube.com/embed/NpIExH_onB4"/>
-                        <br/>
-                        <Video Link="https://www.youtube.com/embed/2orRha30nGQ"/>
-                        <br/>
-                        <Video Link="https://www.youtube.com/embed/Qud2FfAWqFA"/>
-                        <br/>
-                        <Video Link="https://www.youtube.com/embed/aHpDYrRCoB4"/>
-                        <br/>
-                        <Video Link="https://www.youtube.com/embed/GAe7UlNAR7M"/>
-                        <br/>
-                        <Video Link="https://www.youtube.com/embed/UOmfMqX6ODg"/>
-                    </MudGrid>
-                }
-                else if (Page == Pages.Events)
-                {
-                    <MudGrid>
-                        <Event Title="Concertos Para Salas Vazias #1" 
-                               Location="Smup Parede" 
-                               Date="09/09/2022"
-                               Time="09:00 PM"
-                               Link="https://www.facebook.com/events/518896333286396"/>
-                        <br/>
-                        <Event Title="f(Algorave)" 
-                               Location="Galeria Zé dos Bois" 
-                               Date="20/05/2022"
-                               Time="10:00 PM"
-                               Link="https://zedosbois.org/en/programa/falgorave-%E2%9F%A1-postcarbon-collective/"/>
-                    
-                        <br/>
-                        <Event Title="Amphibian Intermission Launch Party" 
-                               Location="Galeria Zé dos Bois" 
-                               Date="18/03/2022"
-                               Time="10:00 PM"
-                               Link="https://zedosbois.org/en/programa/kaptcha-%e2%9f%a1-sasha-theft-amphibian-intermission-launch/"/>
-                        <br/>
-                        <Event Title="Fim de Emissão #10" 
-                               Location="Desterro" 
-                               Date="29/01/2022"
-                               Time="12:00 PM"
-                               Link="https://www.facebook.com/events/360922019185589/"/>
-                        <br/>
-                        <Event Title="Máquina Alienígena" 
-                               Location="ADAO" 
-                               Date="25/01/2020"
-                               Time="12:00 PM"
-                               Link="https://www.facebook.com/events/481577472562415/"/>
-                        <br/>
-                        <Event Title="Void Setup" 
-                               Location="5A Club" 
-                               Date="01/03/2020"
-                               Time="05:00 PM"
-                               Link="https://www.facebook.com/events/618523352050062/"/>
-                        <br/>
-                    </MudGrid>
-                }
-            </div>
+                    <Video Link="https://www.youtube.com/embed/Qud2FfAWqFA"/>
+                    <br/>
+                    <Video Link="https://www.youtube.com/embed/aHpDYrRCoB4"/>
+                    <br/>
+                    <Video Link="https://www.youtube.com/embed/GAe7UlNAR7M"/>
+                    <br/>
+                    <Video Link="https://www.youtube.com/embed/UOmfMqX6ODg"/>
+                </MudGrid>
+            }
+            else if (Page == Pages.Events)
+            {
+                <MudGrid>
+                    <Event Title="Concertos Para Salas Vazias #1" 
+                           Location="Smup Parede" 
+                           Date="09/09/2022"
+                           Time="09:00 PM"
+                           Link="https://www.facebook.com/events/518896333286396"/>
+                    <br/>
+                    <Event Title="f(Algorave)" 
+                           Location="Galeria Zé dos Bois" 
+                           Date="20/05/2022"
+                           Time="10:00 PM"
+                           Link="https://zedosbois.org/en/programa/falgorave-%E2%9F%A1-postcarbon-collective/"/>
+                
+                    <br/>
+                    <Event Title="Amphibian Intermission Launch Party" 
+                           Location="Galeria Zé dos Bois" 
+                           Date="18/03/2022"
+                           Time="10:00 PM"
+                           Link="https://zedosbois.org/en/programa/kaptcha-%e2%9f%a1-sasha-theft-amphibian-intermission-launch/"/>
+                    <br/>
+                    <Event Title="Fim de Emissão #10" 
+                           Location="Desterro" 
+                           Date="29/01/2022"
+                           Time="12:00 PM"
+                           Link="https://www.facebook.com/events/360922019185589/"/>
+                    <br/>
+                    <Event Title="Máquina Alienígena" 
+                           Location="ADAO" 
+                           Date="25/01/2020"
+                           Time="12:00 PM"
+                           Link="https://www.facebook.com/events/481577472562415/"/>
+                    <br/>
+                    <Event Title="Void Setup" 
+                           Location="5A Club" 
+                           Date="01/03/2020"
+                           Time="05:00 PM"
+                           Link="https://www.facebook.com/events/618523352050062/"/>
+                    <br/>
+                </MudGrid>
+            }
         </MudItem>
     </MudGrid>    
 }
