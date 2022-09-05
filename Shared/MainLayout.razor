@@ -1,0 +1,36 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="Ndr0n"/>
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    MudTheme Ndr0n = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Background = "000f",
+            Black = "000f",
+            BackgroundGrey = "111f",
+            Surface = "111f",
+            Primary = "0f0f",
+            Secondary = "00ff",
+            TextPrimary = "ffff",
+            TextSecondary = "0f0f",
+            DrawerBackground = "111f",
+            DrawerText = "ffff"
+        },
+        LayoutProperties = new LayoutProperties()
+        {
+            AppbarHeight = "0px",
+        }
+    };
+}

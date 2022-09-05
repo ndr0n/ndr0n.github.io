@@ -1,0 +1,12 @@
+<MudItem xs="12" Style="height: 40vh; width: 80%; padding: 1%;">
+    <iframe width="560"
+            height="315"
+            src="@Link"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+</MudItem>
+
+@code {
+    [Parameter] public string Link { get; set; }
+}

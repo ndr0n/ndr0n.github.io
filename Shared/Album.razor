@@ -1,0 +1,23 @@
+<MudGrid>
+    <MudItem xs="4">
+        <MudLink Href="@Link">
+            <MudImage Style="width: 20vh; height: 20vh;" Src="@Image"></MudImage>
+        </MudLink>
+    </MudItem>
+    <MudItem xs="8">
+        <MudLink Href="@Link" Typo="Typo.h6">@Title</MudLink>
+        <br/>
+        <MudText Typo="Typo.body2">@Description</MudText>
+        <br/>
+        <MudText Typo="Typo.caption">@Title was released by @Label on @Date</MudText>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Image { get; set; }
+    [Parameter] public string Description { get; set; }
+    [Parameter] public string Date { get; set; }
+    [Parameter] public string Label { get; set; }
+    [Parameter] public string Link { get; set; }
+}

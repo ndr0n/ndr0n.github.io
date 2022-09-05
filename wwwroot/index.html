@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Ndr0n</title>
+    <base href="/" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app">Loading...</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    <script src="scripts/p5.js"></script>
+    <script>
+        let P5;
+        let DotNet = null;
+        
+        SetDotnetReference = function (pDotNetReference) {
+            DotNet = pDotNetReference;
+        };
+
+        DisposeJs = function () {
+            if (P5 != null) P5.remove();
+        }
+
+        window.setp5 = () => {
+            P5 = new p5(sketch, window.document.getElementById('sketch-div'));
+        };
+
+        let sketch = function (p) {
+            let human;
+            let sSpeed = 0.005;
+            let hSpeed = 0.005;
+            let hAlpha = 150;
+            let sAlpha = 50;
+
+            p.preload = function () {
+                human = p.loadModel("assets/body.obj");
+            }
+
+            p.setup = function () {
+                p.createCanvas(p.windowWidth*0.98, p.windowHeight*0.99, p.WEBGL);
+                p.frameRate(60);
+            }
+
+            p.draw = function () {
+                p.background(0);
+                p.noFill();
+                p.strokeWeight(1);
+
+                for(i=0; i<2; i++)
+                {
+                    p.stroke(250, hAlpha);
+                    p.push();
+                    if(i == 0) p.translate(-p.width/4, 0);
+                    else if(i == 1) p.translate(p.width/4, 0);
+                    p.translate(0, p.height / 4 - (p.height / 32));
+                    p.rotateX(p.PI);
+                    p.rotateY(p.frameCount * hSpeed);
+                    p.scale(p.height / 13);
+                    p.model(human);
+                    p.pop();
+
+                    p.stroke(250, sAlpha);
+                    p.push();
+                    if(i == 0) p.translate(-p.width/4, 0);
+                    else if(i == 1) p.translate(p.width/4, 0);
+                    p.rotateY(p.frameCount * sSpeed);
+                    p.sphere(p.height / 4);
+                    p.pop();   
+                }
+
+                if (p.floor(p.random(10)) == 0) {
+                    sAlpha = p.floor(p.random(0, 100));
+                    hAlpha = p.floor(p.random(0, 250));
+                    if (p.floor(p.random(10)) == 0) {
+                        p.randomSpeed();
+                    }
+                }
+            }
+
+            p.randomSpeed = function () {
+                sSpeed = p.random(-0.01, 0.01);
+                hSpeed = sSpeed;
+                if (sSpeed > -0.00001 && hSpeed < 0.0001) {
+                    p.randomSpeed();
+                }
+            }
+
+            p.windowResized = function () {
+                p.resizeCanvas(p.windowWidth*0.98, p.windowHeight*0.99, p.WEBGL);
+            }
+        };
+    </script>
+</body>
+
+</html>

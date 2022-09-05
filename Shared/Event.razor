@@ -1,0 +1,33 @@
+@using System.Globalization
+<MudItem xs="12">
+    @if (Past)
+    {
+        <MudLink Color="Color.Error" Href="@Link">@(Title + " @ " + Location)</MudLink>   
+    }
+    else
+    {
+        <MudLink Href="@Link">@(Title + " @ " + Location)</MudLink>
+    }
+    <MudText>@Date - @Time</MudText>      
+
+</MudItem>
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Location { get; set; }
+    [Parameter] public string Date { get; set; }
+    [Parameter] public string Time { get; set; }
+    [Parameter] public string Link { get; set; }
+    public bool Past { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (DateTime.TryParseExact(Date, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
+        {
+            if (date.Date < DateTime.Now.Date) Past = true;
+            else Past = false;
+            StateHasChanged();
+        }
+    }
+
+}
