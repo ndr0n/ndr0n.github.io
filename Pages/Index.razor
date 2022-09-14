@@ -3,4 +3,11 @@
 @code{
     [CascadingParameter]
     MainLayout MainPage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        MainPage.Page = MainLayout.Pages.None;
+        MainPage.Refresh();
+    }
 }

@@ -1,7 +1,7 @@
 ﻿@page "/Events"
 
 <MudGrid>
-       <MudItem lg="6" md="12" Style="background:#222f; min-height: 90vh; height: 90vh; padding: 1%; overflow-x: hidden; overflow-y: scroll;">
+    <MudItem lg="6" md="12" Style="background:#222f; min-height: 90vh; height: 90vh; padding: 1%; overflow-x: hidden; overflow-y: scroll;">
         <MudGrid>
             <Event Title="Concertos Para Salas Vazias #1"
                    Location="Smup Parede"
@@ -63,7 +63,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
+        MainPage.Page = MainLayout.Pages.Events;
         MainPage.Refresh();
     }
-
 }
