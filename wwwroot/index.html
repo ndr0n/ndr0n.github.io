@@ -57,17 +57,17 @@
                 {
                     p.stroke(250, sAlpha);
                     p.push();
-                    if(i == 0) p.translate(-p.width/4, 0);
-                    else if(i == 1) p.translate(p.width/4, 0);
+                    if(i === 0) p.translate(-p.width/4, 0);
+                    else if(i === 1) p.translate(p.width/4, 0);
                     p.rotateY(p.frameCount * sSpeed);
                     p.sphere(p.height / 4);
                     p.pop();   
                 }
 
-                if (p.floor(p.random(10)) == 0) {
+                if (p.floor(p.random(10)) === 0) {
                     sAlpha = p.floor(p.random(0, 100));
                     hAlpha = p.floor(p.random(0, 250));
-                    if (p.floor(p.random(10)) == 0) {
+                    if (p.floor(p.random(10)) === 0) {
                         p.randomSpeed();
                     }
                 }
