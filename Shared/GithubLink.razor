@@ -1,0 +1,21 @@
+<MudGrid Style="padding: 0; margin: 0">
+    <MudItem xl="4" lg="12" Style="padding: 1%; margin: 0">
+        <MudLink Href=@($"https://github.com/{Link}")>
+            <MudImage Style="width: 30vh; height: 20vh;" Src=@($"https://raw.githubusercontent.com/{Link}/master/{Title}.png")></MudImage>
+        </MudLink>
+    </MudItem>
+    <MudItem xl="7" lg="12" Style="padding: 1%; margin: 0">
+        <MudLink Href=@($"https://github.com/{Link}") Typo="Typo.h6">@Title</MudLink>
+        <br/>
+        <MudText Typo="Typo.body2">@Description</MudText>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public string Link { get; set; }
+    [Parameter]
+    public string Description { get; set; }
+}

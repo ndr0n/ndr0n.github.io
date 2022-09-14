@@ -39,6 +39,15 @@
                 {
                     <MudButton OnClick="() => SetPage(Pages.Events)">Events</MudButton>
                 }
+                |
+                @if (Page == Pages.Software)
+                {
+                    <MudButton OnClick="() => SetPage(Pages.Software)" Style="color: lime">Software</MudButton>
+                }
+                else
+                {
+                    <MudButton OnClick="() => SetPage(Pages.Software)">Software</MudButton>
+                }
                 <br/>
                 <br/>
                 @Body
@@ -54,7 +63,8 @@
         None,
         Releases,
         Videos,
-        Events
+        Events,
+        Software
     };
 
     public Pages Page = Pages.None;
