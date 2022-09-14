@@ -1,0 +1,35 @@
+﻿@page "/Videos"
+
+<MudGrid>
+    <MudItem lg="6" md="12" Style="background:#222f; min-height: 90vh; height: 90vh; padding: 1%; overflow-x: hidden; overflow-y: scroll;">
+        <MudGrid>
+            <Video Link="https://player.twitch.tv/?video=1587227688&parent=ndr0n.github.io"/>
+            <br/>
+            <Video Link="https://www.youtube.com/embed/ZlJ94DDySrA"/>
+            <br/>
+            <Video Link="https://www.youtube.com/embed/NpIExH_onB4"/>
+            <br/>
+            <Video Link="https://www.youtube.com/embed/2orRha30nGQ"/>
+            <br/>
+            <Video Link="https://www.youtube.com/embed/Qud2FfAWqFA"/>
+            <br/>
+            <Video Link="https://www.youtube.com/embed/aHpDYrRCoB4"/>
+            <br/>
+            <Video Link="https://www.youtube.com/embed/GAe7UlNAR7M"/>
+            <br/>
+            <Video Link="https://www.youtube.com/embed/UOmfMqX6ODg"/>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [CascadingParameter]
+    MainLayout MainPage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        MainPage.Refresh();
+    }
+
+}

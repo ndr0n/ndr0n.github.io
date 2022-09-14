@@ -1,18 +1,86 @@
 ﻿@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 
 <MudThemeProvider Theme="Ndr0n"/>
-<MudDialogProvider />
-<MudSnackbarProvider />
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<PageTitle>NDR0N</PageTitle>
 
 <MudLayout>
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
-            @Body
-        </MudContainer>
+        <CascadingValue Value="@this">
+            <MudItem Style="position:absolute; z-index:-10;" id="sketch-div"/>
+            <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+                @if (Page == Pages.Releases)
+                {
+                    <MudButton OnClick="() => SetPage(Pages.Releases)" Style="color: lime;">Releases</MudButton>
+                }
+                else
+                {
+                    <MudButton OnClick="() => SetPage(Pages.Releases)">Releases</MudButton>
+                }
+                |
+                @if (Page == Pages.Videos)
+                {
+                    <MudButton OnClick="() => SetPage(Pages.Videos)" Style="color: lime;">Videos</MudButton>
+                }
+                else
+                {
+                    <MudButton OnClick="() => SetPage(Pages.Videos)">Videos</MudButton>
+                }
+                |
+                @if (Page == Pages.Events)
+                {
+                    <MudButton OnClick="() => SetPage(Pages.Events)" Style="color: lime">Events</MudButton>
+                }
+                else
+                {
+                    <MudButton OnClick="() => SetPage(Pages.Events)">Events</MudButton>
+                }
+                <br/>
+                <br/>
+                @Body
+            </MudContainer>
+        </CascadingValue>
     </MudMainContent>
 </MudLayout>
 
 @code {
+
+    public enum Pages
+    {
+        None,
+        Releases,
+        Videos,
+        Events
+    };
+
+    public Pages Page = Pages.None;
+
+    public void Refresh()
+    {
+        StateHasChanged();
+    }
+
+    private void SetPage(Pages page)
+    {
+        Page = Page == page ? Pages.None : page;
+        NavigationManager.NavigateTo(Page.ToString() == "None" ? "/" : $"/{Page.ToString()}");
+        StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) await setP5();
+    }
+
+    private async Task setP5()
+    {
+        await JSRuntime.InvokeVoidAsync("setp5");
+    }
+
     MudTheme Ndr0n = new MudTheme()
     {
         Palette = new Palette()

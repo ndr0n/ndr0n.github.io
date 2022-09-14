@@ -1,0 +1,93 @@
+﻿@page "/Releases"
+
+<MudGrid>
+    <MudItem lg="6" md="12" Style="background:#222f; min-height: 90vh; height: 90vh; padding: 1%; overflow-x: hidden; overflow-y: scroll;">
+        <Album Title="IBMachine" Image="images/albums/IBMachine.jpg" Date="11/02/2022" Label="Kaptcha" Link="https://kaptchafail.bandcamp.com/album/ibmachine"
+               Description="IBMachine is positioned at an intersection of emotion and apathy.
+                    It explores 
+                    this
+                    duality in
+                    the context 
+                    of human 
+                    designed machine 
+                    utopia.
+                        human emotion 
+                    provokes reaction,
+                        machine 
+                    apathy
+                    invokes objectivity,
+                        human 
+                    seeks physical 
+                    and
+                    mental experience,
+                        Machine 
+                    seeks
+                    mathematical optimization,
+                        human 
+                    learns from 
+                    experience
+                        machine 
+                    learns from 
+                    data
+                        human 
+                    envisions
+                        machine 
+                    obeys
+                    human is
+                        machine is ">
+        </Album>
+        <br/>
+        <Album Title="SyntHuman" Image="images/albums/SyntHuman.jpg" Date="16/12/2021" Label="Mãe Solteira Records" Link="https://ndr0n.bandcamp.com/album/synthuman"
+               Description="SyntHuman describes a process of transformation: physical transformation by embracing machine as an extension of biology; digital transformation by allowing machine generated decisions to guide the human generated composition process.
+
+                    This
+                    EP is designed as an
+                    invocation to 
+                    the destruction 
+                    of dogma 
+                    and to 
+                    the acceptance 
+                    of
+                    the
+                    beauty in
+                    the synergy 
+                    between human 
+                    and
+                    machine.
+                    ">
+        </Album>
+        <br/>
+        <Album Title="White" Image="images/albums/White.jpg" Date="19/08/2020" Label="TruthTable" Link="https://ndr0n.bandcamp.com/album/white-2"
+               Description="White exists in opposition to Black. Light cast upon Dark. Atonality uncovers melody, noise becomes harmony.
+
+                    Transcendence is obtained through
+                    digital
+                    symbiosis.
+                        Technology is evolution in
+                    a programable 
+                    algorithmical
+                    system.
+                        Emotion is binary code and it can
+                    simulate
+                    nirvana.
+                    ">
+        </Album>
+        <br/>
+        <Album Title="Black" Image="images/albums/Black.jpg" Date="18/03/2020" Label="TruthTable" Link="https://ndr0n.bandcamp.com/album/black"
+               Description="Black is the result of a month’s long exploration into minimalism, texture and sound. The EP was composed while the artist was living in South East London.
+                        Through generative and algorithmic techniques, compositions emerge that defy personal preconceptions of rhythm and melody.By recording and sequencing these moments, Black is an attempt to humanize these mathematical processes.
+                        A mixture of analogue and digital sound sources, the artist utilizes the best of both worlds when looking for its sonic identity.">
+        </Album>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [CascadingParameter] MainLayout MainPage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        MainPage.Refresh();
+    }
+
+}
