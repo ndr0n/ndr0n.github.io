@@ -1,15 +1,15 @@
 <MudGrid Style="padding: 1%; margin: 0">
-    <MudItem xs="6" Style="padding: 1%; margin: 0">
+    <MudItem xs="12" Style="padding: 1%; margin: 0">
+        <center>
+            <MudLink Href=@($"https://github.com/{Link}") Typo="Typo.h6">@Title</MudLink>
+            <MudText Typo="Typo.body2">@Description</MudText>
+        </center>
+    </MudItem>
+    <MudItem xs="12" Style="padding: 1%; margin: 0">
         <center>
             <MudLink Href=@($"https://github.com/{Link}")>
                 <MudImage Style="width: 30vh; height: 20vh;" Src=@($"https://raw.githubusercontent.com/{Link}/master/{Title}.png")></MudImage>
             </MudLink>
-        </center>
-    </MudItem>
-    <MudItem xs="6" Style="padding: 1%; margin: 0">
-        <center>
-            <MudLink Href=@($"https://github.com/{Link}") Typo="Typo.h6">@Title</MudLink>
-            <MudText Typo="Typo.body2">@Description</MudText>
         </center>
     </MudItem>
 </MudGrid>
