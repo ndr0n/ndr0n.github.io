@@ -6,14 +6,22 @@
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 
-<PageTitle>NDR0N</PageTitle>
+<PageTitle>Ndr0n</PageTitle>
 
 <MudLayout>
     <MudMainContent>
         <CascadingValue Value="@this">
             <MudItem Style="position:absolute; z-index:-10;" id="sketch-div"/>
-            @*<MudImage Style="position:absolute; z-index:-10; width: 99vw; height: 99vh; " Src="images/background.png"/>*@
             <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+                @if (Page == Pages.About)
+                {
+                    <MudButton OnClick="() => SetPage(Pages.About)" Style="color: lime;">About</MudButton>
+                }
+                else
+                {
+                    <MudButton OnClick="() => SetPage(Pages.About)">About</MudButton>
+                }
+                |
                 @if (Page == Pages.Releases)
                 {
                     <MudButton OnClick="() => SetPage(Pages.Releases)" Style="color: lime;">Releases</MudButton>
@@ -62,6 +70,7 @@
     public enum Pages
     {
         None,
+        About,
         Releases,
         Videos,
         Events,

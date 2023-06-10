@@ -1,0 +1,46 @@
+﻿@page "/About"
+
+<MudGrid>
+    <MudItem lg="6" md="12" Style="background:#222f; min-height: 90vh; height: 90vh; min-width: 50%; padding: 1%; overflow-x: hidden; overflow-y: scroll;">
+        <MudGrid>
+            <MudItem xl="12" lg="12" Style="padding: 1%; margin: 0">
+                <MudImage Style="width: 20vh; height: 20vh;" Src="images/Ndr0n.jpg"></MudImage>
+            </MudItem>
+            <MudItem xl="12" lg="12" Style="padding: 1%; margin: 0">
+                <MudText Typo="Typo.body2">
+                    Ndr0n is an audio-visual project that exists as an extension and digital expression of Afonso Proença. 
+                    <br/>
+                    <br/>
+                    The aesthetic emerges from the mechanical routines and synthetic emotion present in modern society. 
+                    <br/>
+                    <br/>
+                    By continuous experience and developments, Ndr0n is a project that is defined not by one single medium, but by one single principle: Deus Ex Machina.
+                    <br/>
+                    <br/>
+                    Their interests lie in the manifestation of art through technology and the exploration of the boundaries and synergy between human and machine.
+                    <br/>
+                    <br/>
+                    Ndr0n is an audiovisual performer, musician, open-source contributor and programmer, currently based in Lisbon, Portugal.
+                    <br/>
+                    <br/>       
+                    They are also one of the founding members of <MudLink Typo="Typo.body2" Href="https://postcarboncollective.github.io">Postcarbon Collective</MudLink> and <MudLink Typo="Typo.body2" Href="https://notbinarycode.github.io">Not Binary Code</MudLink>.
+                </MudText>
+                <br/>
+                <MudText Typo="Typo.caption">contact: <MudLink Typo="Typo.caption" Href="mailto:ndr0n@pm.me">ndr0n@pm.me</MudLink></MudText>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
+
+@code{
+    [CascadingParameter]
+    MainLayout MainPage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        MainPage.Page = MainLayout.Pages.About;
+        MainPage.Refresh();
+    }
+
+}
