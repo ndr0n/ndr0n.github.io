@@ -61,6 +61,7 @@ function restructured() {
 function scanned() {
     return "" +
         "setcps(170/60/4)\n" +
+        "all(x=>x.sometimesBy(0.125,y=>y.brak()))\n" +
         "\n" +
         "d1:stack(\n" +
         "s(\"amen:0\").splice(16, \"[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15]*8?0.125\").legato(1).gain(0.75).cut(1),\n" +
@@ -76,6 +77,5 @@ function scanned() {
         "d4:stack(\n" +
         "s(\"pad\").note(\"[24 ~]/2\").slice(16, \"[[0|1|2|3|4|5|6|7|9|10|11|12|13|14|15] ~]/2\").legato(1).gain(1.125)\n" +
         ").amp(1).delay(0.25).delayt(0.33).delayfb(rand.range(0,0.75)).lock(1).room(1).roomsize(0.9)._scope()\n" +
-        "\n" +
         "";
 }
