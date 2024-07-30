@@ -53,7 +53,7 @@ function restructured() {
         "s(\"vox*8?\").note(24).legato(1).gain(0.6).slice(16, \"[0|1|2|3|4|5|6|7|9|10|11|12|13|14|15]*8\").comb(1)\n" +
         ").amp(1).delay(0.25).delayt(0.33).delayfb(rand.range(0,0.75)).lock(1).room(0.25).roomsize(0.9)._scope()\n" +
         "d4:stack(\n" +
-        "s(\"glitch*8?0.7\").loopAt(8).legato(1).gain(0.5).slice(8, \"[0|1|2|3|4|5|6|7]*8\")\n" +
+        "s(\"glitch*8?0.7\").loopAt(8).legato(1).gain(0.4).slice(8, \"[0|1|2|3|4|5|6|7]*8\")\n" +
         ").amp(1).delay(0.25).delayt(0.33).delayfb(rand.range(0,0.75)).lock(1).room(1).roomsize(0.9)._scope()\n" +
         "";
 }
