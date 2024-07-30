@@ -25,18 +25,11 @@ window.StrudelSetCode = (track) => {
     else repl.setCode(restructured());
 }
 
-function initcode() {
-    return "" +
-        "samples('/strudelcycles/simulated.json')\n" +
-        "setcps(170/60/4)\n" +
-        "";
-}
-
 function restructured() {
     return "" +
         "samples('/strudelcycles/simulated.json')\n" +
-        "setcps(170/60/4)\n" +
         "\n" +
+        "setcps(170/60/4)\n" +
         "all(x => x.sometimesBy(0.125,y=>y.brak()))\n" +
         "\n" +
         "d1:stack(\n" +
