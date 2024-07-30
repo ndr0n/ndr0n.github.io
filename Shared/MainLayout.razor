@@ -82,11 +82,17 @@
     {
         None,
         Background,
-        Simulated,
     }
 
     public Pages Page = Pages.None;
-    public Canvas CurrentCanvas = Canvas.None;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Js.InvokeVoidAsync("StartBackground");
+        }
+    }
 
     public void Refresh()
     {
@@ -95,33 +101,15 @@
 
     private void SetPage(Pages page)
     {
+        if (Page == Pages.Simulated)
+        {
+            Js.InvokeVoidAsync("StrudelClear");
+        }
         Page = Page == page ? Pages.None : page;
         NavigationManager.NavigateTo(Page.ToString() == "None" ? "/" : $"/{Page.ToString()}");
         StateHasChanged();
     }
-
-    public async Task SetCanvas(Canvas value)
-    {
-        switch (value)
-        {
-            case Canvas.Background:
-            {
-                if (CurrentCanvas != Canvas.Background)
-                {
-                    await Js.InvokeVoidAsync("SetP5Background");
-                }
-                break;
-            }
-            case Canvas.Simulated:
-                if (CurrentCanvas != Canvas.Simulated)
-                {
-                    await Js.InvokeVoidAsync("SetP5Simulated");
-                }
-                break;
-        }
-        CurrentCanvas = value;
-    }
-
+    
     MudTheme Ndr0n = new MudTheme()
     {
         Palette = new Palette()

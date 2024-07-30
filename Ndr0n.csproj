@@ -29,10 +29,6 @@
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 	  </Content>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="wwwroot\videos\" />
-	</ItemGroup>
 	
 	
 </Project>

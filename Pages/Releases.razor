@@ -90,12 +90,4 @@
         MainPage.Page = MainLayout.Pages.Releases;  
         MainPage.Refresh();
     }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await MainPage.SetCanvas(MainLayout.Canvas.Background);
-        }
-    }
 }

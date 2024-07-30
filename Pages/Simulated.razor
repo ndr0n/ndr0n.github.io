@@ -1,9 +1,37 @@
 ﻿@page "/Simulated"
+@using System.Runtime.Serialization.Json
+@inject IJSRuntime Js
+
+<MudGrid>
+    <MudItem xs="6">
+        <MudGrid>
+            <MudItem xs="3">
+                <MudButton OnClick="@Play" Variant="Variant.Outlined" Color="Color.Primary">PLAY</MudButton>
+            </MudItem>
+            <MudItem xs="3">
+                <MudButton OnClick="@Stop" Variant="Variant.Outlined" Color="Color.Primary">STOP</MudButton>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+    <MudItem xs="6">
+        <MudGrid>
+            <MudItem xs="6">
+                <MudSelect T="string" Value="@Track" Dense="true" Variant="Variant.Text" Label="Track" ValueChanged="@(s => SetTrack(s))">
+                    <MudSelectItem Value="@("Restructured")"/>
+                </MudSelect>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
+
+<div id="strudel"></div>
 
 @code
 {
     [CascadingParameter]
     MainLayout MainPage { get; set; }
+
+    public string Track { get; set; } = "Restructured";
 
     protected override async void OnInitialized()
     {
@@ -11,12 +39,28 @@
         MainPage.Page = MainLayout.Pages.Simulated;
         MainPage.Refresh();
     }
-    
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await MainPage.SetCanvas(MainLayout.Canvas.Simulated);
+            await Js.InvokeVoidAsync("StrudelInit");
         }
+    }
+
+    public async Task Play()
+    {
+        await Js.InvokeVoidAsync("StrudelPlay");
+    }
+
+    public async Task Stop()
+    {
+        await Js.InvokeVoidAsync("StrudelStop");
+    }
+
+    public async Task SetTrack(string track)
+    {
+        await Js.InvokeVoidAsync("StrudelSetCode", track.ToLower());
+        await Js.InvokeVoidAsync("StrudelPlay");
     }
 }
