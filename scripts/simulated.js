@@ -64,9 +64,9 @@ function scanned() {
         "all(x=>x.sometimesBy(0.125,y=>y.brak()))\n" +
         "\n" +
         "d1:stack(\n" +
-        "s(\"amen:0\").splice(16, \"[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15]*8?0.125\").legato(1).gain(0.75).cut(1),\n" +
+        "s(\"amen:0\").splice(16, \"[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15]*8?0.125\").legato(1).gain(0.8).cut(1),\n" +
         "s(\"hh\").struct(\"[t t t t]*4\").legato(0.125).gain(0.6),\n" +
-        "s(\"fh\").note(36).struct(\"[t t t t]*4?0.7\").legato(0.25).gain(0.45)\n" +
+        "s(\"bip\").note(12).struct(\"[t t t t]*4?0.7\").legato(0.25).gain(0.15)\n" +
         ").amp(1)._scope()\n" +
         "d2:stack(\n" +
         "s(\"neuro\").note(\"[36 ~]/2\").slice(8, \"[0|1|2|3|4|5|6|7]\").legato(1).gain(1.25).cut(3)\n" +
