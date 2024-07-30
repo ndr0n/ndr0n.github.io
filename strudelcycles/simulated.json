@@ -1,9 +1,37 @@
 {
   "_base": "/audio/",
-  "bd": "nk07.wav",
-  "sd": "ns05.wav",
-  "hh": "nhh00.wav",
-  "fh": "nfh01.wav",
-  "vox": "nvox06.wav",
-  "glitch": "nglitch07.wav"
+  "bd": [
+    "nk07.wav"
+  ],
+  "sd": [
+    "ns05.wav"
+  ],
+  "hh": [
+    "nhh00.wav"
+  ],
+  "fh": [
+    "nfh01.wav"
+  ],
+  "bip": [
+    "nfh00.wav"
+  ],
+  "vox": [
+    "nvox06.wav"
+  ],
+  "glitch": [
+    "nglitch07.wav"
+  ],
+  "amen": [
+    "namen28.wav",
+    "namen29.wav"
+  ],
+  "neuro": [
+    "nneuro09.wav"
+  ],
+  "piano": [
+    "npiano09.wav"
+  ],
+  "pad": [
+    "npad11.wav"
+  ]
 }
