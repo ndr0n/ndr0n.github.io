@@ -69,7 +69,7 @@ function restructured() {
         "s(\"fh\").struct(\"[~ ~ t ~]*2\").legato(0.25).gain(0.45)\n" +
         ").amp(1)._scope()\n" +
         "d2:stack(\n" +
-        "s(\"sawtooth*8?\").note(\"[0|2|3|5]*8\").transpose(28).legato(2).gain(1.25).cut(3).lpf(rand.range(25,500)).lpenv(rand.range(1,8)).lpq(15)\n" +
+        "s(\"sawtooth*8?\").note(\"[0|2|3|5]*8\").transpose(28).legato(2).gain(1).cut(3).lpf(rand.range(25,500)).lpenv(rand.range(1,8)).lpq(15)\n" +
         ").amp(1)._scope()\n" +
         "d3:stack(\n" +
         "s(\"vox*8?\").note(24).legato(1).gain(0.6).slice(16, \"[0|1|2|3|4|5|6|7|9|10|11|12|13|14|15]*8\").comb(1)\n" +
