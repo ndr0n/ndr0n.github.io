@@ -6,7 +6,7 @@ window.StrudelInit = () => {
     repl = strudel.editor;
     repl.setCode(initcode());
     repl.evaluate();
-    repl.setCode(restructured());
+    repl.setCode(scanned());
     repl.stop();
 };
 
@@ -24,8 +24,8 @@ window.StrudelStop = () => {
 }
 
 window.StrudelSetCode = (track) => {
-    if (track === "restructured") repl.setCode(restructured());
-    else if(track === "scanned") repl.setCode(scanned());
+    if(track === "scanned") repl.setCode(scanned());
+    else if (track === "restructured") repl.setCode(restructured());
     else repl.setCode(restructured());
 }
 
