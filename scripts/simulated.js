@@ -4,6 +4,8 @@ window.StrudelInit = () => {
     const strudel = document.createElement('strudel-editor');
     document.getElementById('strudel').append(strudel);
     repl = strudel.editor;
+    repl.setCode(initcode());
+    repl.evaluate();
     repl.setCode(restructured());
 };
 
@@ -25,10 +27,14 @@ window.StrudelSetCode = (track) => {
     else repl.setCode(restructured());
 }
 
-function restructured() {
+function initcode() {
     return "" +
         "samples('/strudelcycles/simulated.json')\n" +
-        "\n" +
+        "hush()";
+}
+
+function restructured() {
+    return "" +
         "setcps(170/60/4)\n" +
         "all(x => x.sometimesBy(0.125,y=>y.brak()))\n" +
         "\n" +
