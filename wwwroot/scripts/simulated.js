@@ -6,6 +6,7 @@ window.StrudelInit = () => {
     repl = strudel.editor;
     repl.setCode(initcode());
     repl.evaluate();
+    repl.stop();
     repl.setCode(restructured());
 };
 
