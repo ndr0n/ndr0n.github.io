@@ -6,8 +6,8 @@ window.StrudelInit = () => {
     repl = strudel.editor;
     repl.setCode(initcode());
     repl.evaluate();
-    repl.stop();
     repl.setCode(restructured());
+    repl.stop();
 };
 
 window.StrudelClear = () => {
@@ -24,20 +24,21 @@ window.StrudelStop = () => {
 }
 
 window.StrudelSetCode = (track) => {
-    if (track === "restructured") repl.setCode(restructured())
+    if (track === "restructured") repl.setCode(restructured());
+    else if(track === "scanned") repl.setCode(scanned());
     else repl.setCode(restructured());
 }
 
 function initcode() {
     return "" +
         "samples('/strudelcycles/simulated.json')\n" +
-        "hush()";
+        "";
 }
 
 function restructured() {
     return "" +
         "setcps(170/60/4)\n" +
-        "all(x => x.sometimesBy(0.125,y=>y.brak()))\n" +
+        "all(x=>x.sometimesBy(0.125,y=>y.brak()))\n" +
         "\n" +
         "d1:stack(\n" +
         "s(\"bd\").struct(\"[t ~ ~ t ~ ~ ~ ~]*1\").legato(3).gain(1).cut(1),\n" +
@@ -55,5 +56,26 @@ function restructured() {
         "s(\"glitch*8?0.7\").loopAt(8).legato(1).gain(0.5).slice(8, \"[0|1|2|3|4|5|6|7]*8\")\n" +
         ").amp(1).delay(0.25).delayt(0.33).delayfb(rand.range(0,0.75)).lock(1).room(1).roomsize(0.9)._scope()\n" +
         "";
-    return code;
+}
+
+function scanned() {
+    return "" +
+        "setcps(170/60/4)\n" +
+        "\n" +
+        "d1:stack(\n" +
+        "s(\"amen:0\").splice(16, \"[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15]*8?0.125\").legato(1).gain(0.75).cut(1),\n" +
+        "s(\"hh\").struct(\"[t t t t]*4\").legato(0.125).gain(0.6),\n" +
+        "s(\"fh\").note(36).struct(\"[t t t t]*4?0.7\").legato(0.25).gain(0.45)\n" +
+        ").amp(1)._scope()\n" +
+        "d2:stack(\n" +
+        "s(\"neuro\").note(\"[36 ~]/2\").slice(8, \"[0|1|2|3|4|5|6|7]\").legato(1).gain(1.25).cut(3)\n" +
+        ").amp(1).room(0.25).roomsize(0.9)._scope()\n" +
+        "d3:stack(\n" +
+        "s(\"piano\").slice(16, \"[[0|1|2|3|4|5|6|7|9|10|11|12|13|14|15] ~]/2\").legato(1).gain(1)\n" +
+        ").amp(1).delay(0.25).delayt(0.33).delayfb(rand.range(0,0.75)).lock(1).room(0.25).roomsize(0.9)._scope()\n" +
+        "d4:stack(\n" +
+        "s(\"pad\").note(\"[24 ~]/2\").slice(16, \"[[0|1|2|3|4|5|6|7|9|10|11|12|13|14|15] ~]/2\").legato(1).gain(1.125)\n" +
+        ").amp(1).delay(0.25).delayt(0.33).delayfb(rand.range(0,0.75)).lock(1).room(1).roomsize(0.9)._scope()\n" +
+        "\n" +
+        "";
 }

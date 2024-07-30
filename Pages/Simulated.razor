@@ -1,15 +1,17 @@
 ﻿@page "/Simulated"
-@using System.Runtime.Serialization.Json
 @inject IJSRuntime Js
 
 <MudGrid>
     <MudItem xs="6">
         <MudGrid>
-            <MudItem xs="6">
+            <MudItem xs="4">
                 <MudButton OnClick="@Play" Variant="Variant.Outlined" Color="Color.Primary">PLAY</MudButton>
             </MudItem>
-            <MudItem xs="6">
+            <MudItem xs="4">
                 <MudButton OnClick="@Stop" Variant="Variant.Outlined" Color="Color.Primary">STOP</MudButton>
+            </MudItem>
+            <MudItem xs="4">
+                <MudButton OnClick="@Reset" Variant="Variant.Outlined" Color="Color.Primary">RESET</MudButton>
             </MudItem>
         </MudGrid>
     </MudItem>
@@ -17,6 +19,7 @@
         <MudGrid>
             <MudItem xs="12" Style="margin-top:-17px;">
                 <MudSelect T="string" Value="@Track" Dense="true" Variant="Variant.Text" Label="Track" ValueChanged="@(s => SetTrack(s))">
+                    <MudSelectItem Value="@("Scanned")"/>
                     <MudSelectItem Value="@("Restructured")"/>
                 </MudSelect>
             </MudItem>
@@ -57,9 +60,15 @@
     {
         await Js.InvokeVoidAsync("StrudelStop");
     }
+    
+    public async Task Reset()
+    {
+        await SetTrack(Track);
+    }
 
     public async Task SetTrack(string track)
     {
+        Track = track;
         await Js.InvokeVoidAsync("StrudelSetCode", track.ToLower());
         await Js.InvokeVoidAsync("StrudelPlay");
     }
