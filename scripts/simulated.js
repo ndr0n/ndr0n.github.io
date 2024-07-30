@@ -13,10 +13,6 @@ window.StrudelClear = () => {
 }
 
 window.StrudelPlay = () => {
-    let code = repl.code; 
-    repl.setCode(initcode());
-    repl.evaluate();
-    repl.setCode(code);
     repl.evaluate();
 }
 
@@ -38,6 +34,9 @@ function initcode() {
 
 function restructured() {
     return "" +
+        "samples('/strudelcycles/simulated.json')\n" +
+        "setcps(170/60/4)\n" +
+        "\n" +
         "all(x => x.sometimesBy(0.125,y=>y.brak()))\n" +
         "\n" +
         "d1:stack(\n" +
