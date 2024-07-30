@@ -7,14 +7,31 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Blazored.Video" Version="1.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.JSInterop" Version="6.0.26" />
 		<PackageReference Include="MudBlazor" Version="6.0.13" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
 	  <_ContentIncludedByDefault Remove="wwwroot\assets\body.obj" />
+	  <_ContentIncludedByDefault Remove="wwwroot\pd\index.html" />
+	  <_ContentIncludedByDefault Remove="wwwroot\pd\pd.js" />
+	  <_ContentIncludedByDefault Remove="wwwroot\pd\webpd-runtime.js" />
+	  <_ContentIncludedByDefault Remove="wwwroot\scripts\audio\nambien02.wav" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="libpdcsharp.so">
+	    <ExcludeFromSingleFile>false</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\videos\" />
 	</ItemGroup>
 	
 	

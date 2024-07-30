@@ -1,0 +1,22 @@
+﻿@page "/Simulated"
+
+@code
+{
+    [CascadingParameter]
+    MainLayout MainPage { get; set; }
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        MainPage.Page = MainLayout.Pages.Simulated;
+        MainPage.Refresh();
+    }
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await MainPage.SetCanvas(MainLayout.Canvas.Simulated);
+        }
+    }
+}

@@ -3,6 +3,8 @@
 <MudGrid>
     <MudItem lg="6" md="12" Style="background:#222f; min-height: 90vh; height: 90vh; min-width: 50%; padding: 1%; overflow-x: hidden; overflow-y: scroll;">
         <MudGrid>
+            <Event Title=""/>
+            <br/>
             <Event Title="Intertwined"
                    Location="Armazem Soul"
                    Date="06/06/2023"
@@ -129,6 +131,14 @@
         base.OnInitialized();
         MainPage.Page = MainLayout.Pages.Events;
         MainPage.Refresh();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await MainPage.SetCanvas(MainLayout.Canvas.Background);
+        }
     }
 
 }

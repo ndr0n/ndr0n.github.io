@@ -1,5 +1,5 @@
 ﻿@inherits LayoutComponentBase
-@inject IJSRuntime JSRuntime
+@inject IJSRuntime Js
 @inject NavigationManager NavigationManager
 
 <MudThemeProvider Theme="Ndr0n"/>
@@ -11,7 +11,7 @@
 <MudLayout>
     <MudMainContent>
         <CascadingValue Value="@this">
-            <MudItem Style="position:absolute; z-index:-10;" id="sketch-div"/>
+            <MudItem Style="position:absolute; z-index:-10;" id="p5-sketch"/>
             <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
                 @if (Page == Pages.About)
                 {
@@ -74,10 +74,19 @@
         Releases,
         Videos,
         Events,
-        Software
+        Software,
+        Simulated
     };
 
+    public enum Canvas
+    {
+        None,
+        Background,
+        Simulated,
+    }
+
     public Pages Page = Pages.None;
+    public Canvas CurrentCanvas = Canvas.None;
 
     public void Refresh()
     {
@@ -91,14 +100,26 @@
         StateHasChanged();
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    public async Task SetCanvas(Canvas value)
     {
-        if (firstRender) await setP5();
-    }
-
-    private async Task setP5()
-    {
-        await JSRuntime.InvokeVoidAsync("setp5");
+        switch (value)
+        {
+            case Canvas.Background:
+            {
+                if (CurrentCanvas != Canvas.Background)
+                {
+                    await Js.InvokeVoidAsync("SetP5Background");
+                }
+                break;
+            }
+            case Canvas.Simulated:
+                if (CurrentCanvas != Canvas.Simulated)
+                {
+                    await Js.InvokeVoidAsync("SetP5Simulated");
+                }
+                break;
+        }
+        CurrentCanvas = value;
     }
 
     MudTheme Ndr0n = new MudTheme()
