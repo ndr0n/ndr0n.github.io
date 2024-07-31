@@ -4,10 +4,19 @@
 
 <MudGrid>
     <MudItem xs="3">
-        <MudButton OnClick="@Play" Variant="Variant.Filled" Color="Color.Success">PLAY</MudButton>
+        <MudButton OnClick="TogglePlay" Variant="Variant.Filled" Color="@(Playing ? Color.Error : Color.Success)">
+            @if (Playing)
+            {
+                <MudText>Stop</MudText>
+            }
+            else
+            {
+                <MudText>Play</MudText>
+            }
+        </MudButton>
     </MudItem>
-    <MudItem xs="3">
-        <MudButton OnClick="@Stop" Variant="Variant.Filled" Color="Color.Success">STOP</MudButton>
+    <MudItem xs="3" Style="margin-top:-26px;">
+        <MudNumericField Value="@Bpm" Label="BPM" Variant="Variant.Filled" Min="0" ValueChanged="@((int i) => SetBpm(i))"/>
     </MudItem>
     <MudItem xs="6" Style="margin-top:-18px;">
         <MudSelect T="string" Value="@Track" Dense="true" Variant="Variant.Text" Label="Track" ValueChanged="@(s => SetTrack(s))"
@@ -18,7 +27,7 @@
     </MudItem>
 </MudGrid>
 
-<div id="strudel" style="max-height: 70vh; overflow-y: scroll;"></div>
+<div id="strudel" style="max-height: 75vh; overflow-y: scroll;"></div>
 
 <MudGrid>
     <MudItem xs="3">
@@ -40,6 +49,8 @@
     [CascadingParameter]
     MainLayout MainPage { get; set; }
 
+    public bool Playing { get; set; } = false;
+    public int Bpm { get; set; } = 170;
     public string Track { get; set; } = "Restructured";
     public List<bool> Pattern { get; set; } = new() { true, true, true, true };
 
@@ -58,13 +69,33 @@
         }
     }
 
+    public async Task TogglePlay()
+    {
+        if (Playing)
+        {
+            await Stop();
+        }
+        else
+        {
+            await Play();
+        }
+    }
+
+    public async Task SetBpm(int value)
+    {
+        Bpm = value;
+        await Js.InvokeVoidAsync("StrudelSetBpm", value);
+    }
+
     public async Task Play()
     {
+        Playing = true;
         await Js.InvokeVoidAsync("StrudelPlay");
     }
 
     public async Task Stop()
     {
+        Playing = false;
         await Js.InvokeVoidAsync("StrudelStop");
     }
 
@@ -81,6 +112,8 @@
 
     public async Task SetTrack(string track)
     {
+        Playing = true;
+        Bpm = 170;
         Track = track;
         for (int i = 0; i < Pattern.Count; i++) Pattern[i] = true;
         await Js.InvokeVoidAsync("StrudelSetCode", track.ToLower());
