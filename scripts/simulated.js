@@ -29,6 +29,31 @@ window.StrudelSetCode = (track) => {
     else repl.setCode(restructured());
 }
 
+window.StrudelSetPattern = (index, value) => {
+    if(index === 0)
+    {
+        if(value) repl.setCode(repl.code.replace("_d1:", "d1:"));
+        else repl.setCode(repl.code.replace("d1:", "_d1:"));
+    }
+    if(index === 1)
+    {
+        if(value) repl.setCode(repl.code.replace("_d2:", "d2:"));
+        else repl.setCode(repl.code.replace("d2:", "_d2:"));
+    }
+    if(index === 2)
+    {
+        if(value) repl.setCode(repl.code.replace("_d3:", "d3:"));
+        else repl.setCode(repl.code.replace("d3:", "_d3:"));
+    }
+    if(index === 3)
+    {
+        if(value) repl.setCode(repl.code.replace("_d4:", "d4:"));
+        else repl.setCode(repl.code.replace("d4:", "_d4:"));
+    }
+    repl.evaluate();
+    
+}
+
 function initcode() {
     return "" +
         "samples('/strudelcycles/simulated.json')\n" +
@@ -41,7 +66,7 @@ function scanned() {
         "all(x=>x.sometimesBy(0.125,y=>y.brak()))\n" +
         "\n" +
         "d1:stack(\n" +
-        "s(\"amen:0\").when(\"<1 0>/16\", x=>x.s(\"amen:1\")).splice(16, \"[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15]*8?0.125\").legato(1).gain(0.8).cut(1),\n" +
+        "s(\"amen:0\").when(\"<1 0>/16\",x=>x.s(\"amen:1\")).splice(16, \"[0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15]*8?0.125\").legato(1).gain(0.8).cut(1),\n" +
         "s(\"hh\").struct(\"[t t t t]*4\").legato(0.125).gain(0.6),\n" +
         "s(\"bip\").note(12).struct(\"[t t t t]*4?0.7\").legato(0.25).gain(0.15)\n" +
         ").amp(1)._scope()\n" +
