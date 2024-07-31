@@ -4,12 +4,12 @@
 
 <MudGrid>
     <MudItem xs="3">
-        <MudButton OnClick="@Play" Variant="Variant.Outlined" Color="Color.Primary">PLAY</MudButton>
+        <MudButton OnClick="@Play" Variant="Variant.Filled" Color="Color.Success">PLAY</MudButton>
     </MudItem>
     <MudItem xs="3">
-        <MudButton OnClick="@Stop" Variant="Variant.Outlined" Color="Color.Primary">STOP</MudButton>
+        <MudButton OnClick="@Stop" Variant="Variant.Filled" Color="Color.Success">STOP</MudButton>
     </MudItem>
-    <MudItem xs="6" Style="margin-top:-15px;">
+    <MudItem xs="6" Style="margin-top:-18px;">
         <MudSelect T="string" Value="@Track" Dense="true" Variant="Variant.Text" Label="Track" ValueChanged="@(s => SetTrack(s))"
                    Adornment="Adornment.End" AdornmentColor="Color.Primary" AdornmentIcon="@Icons.Filled.Download" OnAdornmentClick="@Reset">
             <MudSelectItem Value="@("Scanned")"/>
@@ -22,16 +22,16 @@
 
 <MudGrid>
     <MudItem xs="3">
-        <MudButton Color="@(Pattern[0] ? Color.Primary : @Color.Info)" OnClick="@(async () => await SetPattern(0, !Pattern[0]))" Variant="Variant.Outlined">d1</MudButton>
+        <MudButton Color="@(Pattern[0] ? Color.Success : @Color.Error)" OnClick="@(async () => await SetPattern(0, !Pattern[0]))" Variant="Variant.Filled">d1</MudButton>
     </MudItem>
     <MudItem xs="3">
-        <MudButton Color="@(Pattern[1] ? Color.Primary : @Color.Info)" OnClick="@(async () => await SetPattern(1, !Pattern[1]))" Variant="Variant.Outlined">d2</MudButton>
+        <MudButton Color="@(Pattern[1] ? Color.Success : @Color.Error)" OnClick="@(async () => await SetPattern(1, !Pattern[1]))" Variant="Variant.Filled">d2</MudButton>
     </MudItem>
     <MudItem xs="3">
-        <MudButton Color="@(Pattern[2] ? Color.Primary : @Color.Info)" OnClick="@(async () => await SetPattern(2, !Pattern[2]))" Variant="Variant.Outlined">d3</MudButton>
+        <MudButton Color="@(Pattern[2] ? Color.Success : @Color.Error)" OnClick="@(async () => await SetPattern(2, !Pattern[2]))" Variant="Variant.Filled">d3</MudButton>
     </MudItem>
     <MudItem xs="3">
-        <MudButton Color="@(Pattern[3] ? Color.Primary : @Color.Info)" OnClick="@(async () => await SetPattern(3, !Pattern[3]))" Variant="Variant.Outlined">d4</MudButton>
+        <MudButton Color="@(Pattern[3] ? Color.Success : @Color.Error)" OnClick="@(async () => await SetPattern(3, !Pattern[3]))" Variant="Variant.Filled">d4</MudButton>
     </MudItem>
 </MudGrid>
 
