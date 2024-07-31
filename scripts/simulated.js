@@ -1,4 +1,5 @@
 let repl;
+let bpm = 170;
 
 window.StrudelInit = () => {
     const strudel = document.createElement('strudel-editor');
@@ -24,34 +25,39 @@ window.StrudelStop = () => {
 }
 
 window.StrudelSetCode = (track) => {
-    if(track === "scanned") repl.setCode(scanned());
+    bpm = 170;
+    if (track === "scanned") repl.setCode(scanned());
     else if (track === "restructured") repl.setCode(restructured());
     else repl.setCode(restructured());
 }
 
+window.StrudelSetBpm = (value) => {
+    let search = "cps(" + bpm;
+    let replacer = "cps(" + value;
+    bpm = value;
+    repl.setCode(repl.code.replace(search, replacer));
+    repl.evaluate();
+}
+
 window.StrudelSetPattern = (index, value) => {
-    if(index === 0)
-    {
-        if(value) repl.setCode(repl.code.replace("_d1:", "d1:"));
+    if (index === 0) {
+        if (value) repl.setCode(repl.code.replace("_d1:", "d1:"));
         else repl.setCode(repl.code.replace("d1:", "_d1:"));
     }
-    if(index === 1)
-    {
-        if(value) repl.setCode(repl.code.replace("_d2:", "d2:"));
+    if (index === 1) {
+        if (value) repl.setCode(repl.code.replace("_d2:", "d2:"));
         else repl.setCode(repl.code.replace("d2:", "_d2:"));
     }
-    if(index === 2)
-    {
-        if(value) repl.setCode(repl.code.replace("_d3:", "d3:"));
+    if (index === 2) {
+        if (value) repl.setCode(repl.code.replace("_d3:", "d3:"));
         else repl.setCode(repl.code.replace("d3:", "_d3:"));
     }
-    if(index === 3)
-    {
-        if(value) repl.setCode(repl.code.replace("_d4:", "d4:"));
+    if (index === 3) {
+        if (value) repl.setCode(repl.code.replace("_d4:", "d4:"));
         else repl.setCode(repl.code.replace("d4:", "_d4:"));
     }
     repl.evaluate();
-    
+
 }
 
 function initcode() {
