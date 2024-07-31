@@ -48,15 +48,15 @@
                 {
                     <MudButton OnClick="() => SetPage(Pages.Events)">Events</MudButton>
                 }
-                |
-                @if (Page == Pages.Software)
-                {
-                    <MudButton OnClick="() => SetPage(Pages.Software)" Style="color: lime">Software</MudButton>
-                }
-                else
-                {
-                    <MudButton OnClick="() => SetPage(Pages.Software)">Software</MudButton>
-                }
+                @* | *@
+                @* @if (Page == Pages.Software) *@
+                @* { *@
+                @*     <MudButton OnClick="() => SetPage(Pages.Software)" Style="color: lime">Software</MudButton> *@
+                @* } *@
+                @* else *@
+                @* { *@
+                @*     <MudButton OnClick="() => SetPage(Pages.Software)">Software</MudButton> *@
+                @* } *@
                 <br/>
                 <br/>
                 @Body

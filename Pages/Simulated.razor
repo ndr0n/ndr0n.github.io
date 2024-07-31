@@ -9,11 +9,9 @@
     <MudItem xs="3">
         <MudButton OnClick="@Stop" Variant="Variant.Outlined" Color="Color.Primary">STOP</MudButton>
     </MudItem>
-    <MudItem xs="3">
-        <MudButton OnClick="@Reset" Variant="Variant.Outlined" Color="Color.Primary">RESET</MudButton>
-    </MudItem>
-    <MudItem xs="3" Style="margin-top:-15px;">
-        <MudSelect T="string" Value="@Track" Dense="true" Variant="Variant.Text" Label="Track" ValueChanged="@(s => SetTrack(s))">
+    <MudItem xs="6" Style="margin-top:-15px;">
+        <MudSelect T="string" Value="@Track" Dense="true" Variant="Variant.Text" Label="Track" ValueChanged="@(s => SetTrack(s))"
+                   Adornment="Adornment.End" AdornmentColor="Color.Primary" AdornmentIcon="@Icons.Filled.Download" OnAdornmentClick="@Reset">
             <MudSelectItem Value="@("Scanned")"/>
             <MudSelectItem Value="@("Restructured")"/>
         </MudSelect>
@@ -42,7 +40,7 @@
     [CascadingParameter]
     MainLayout MainPage { get; set; }
 
-    public string Track { get; set; } = "Scanned";
+    public string Track { get; set; } = "Restructured";
     public List<bool> Pattern { get; set; } = new() { true, true, true, true };
 
     protected override async void OnInitialized()
