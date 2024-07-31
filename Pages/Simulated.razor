@@ -1,4 +1,5 @@
 ﻿@page "/Simulated"
+@using MudBlazor.Utilities
 @inject IJSRuntime Js
 
 <MudGrid>
@@ -19,7 +20,22 @@
     </MudItem>
 </MudGrid>
 
-<div id="strudel"></div>
+<div id="strudel" style="max-height: 85vh; overflow-y: scroll;"></div>
+
+<MudGrid>
+    <MudItem xs="3">
+        <MudButton Color="@(Pattern[0] ? Color.Primary : @Color.Info)" OnClick="@(async () => await SetPattern(0, !Pattern[0]))" Variant="Variant.Outlined">d1</MudButton>
+    </MudItem>
+    <MudItem xs="3">
+        <MudButton Color="@(Pattern[1] ? Color.Primary : @Color.Info)" OnClick="@(async () => await SetPattern(1, !Pattern[1]))" Variant="Variant.Outlined">d2</MudButton>
+    </MudItem>
+    <MudItem xs="3">
+        <MudButton Color="@(Pattern[2] ? Color.Primary : @Color.Info)" OnClick="@(async () => await SetPattern(2, !Pattern[2]))" Variant="Variant.Outlined">d3</MudButton>
+    </MudItem>
+    <MudItem xs="3">
+        <MudButton Color="@(Pattern[3] ? Color.Primary : @Color.Info)" OnClick="@(async () => await SetPattern(3, !Pattern[3]))" Variant="Variant.Outlined">d4</MudButton>
+    </MudItem>
+</MudGrid>
 
 @code
 {
@@ -27,6 +43,7 @@
     MainLayout MainPage { get; set; }
 
     public string Track { get; set; } = "Scanned";
+    public List<bool> Pattern { get; set; } = new() { true, true, true, true };
 
     protected override async void OnInitialized()
     {
@@ -58,9 +75,16 @@
         await SetTrack(Track);
     }
 
+    public async Task SetPattern(int index, bool value)
+    {
+        Pattern[index] = value;
+        await Js.InvokeVoidAsync("StrudelSetPattern", index, value);
+    }
+
     public async Task SetTrack(string track)
     {
         Track = track;
+        for (int i = 0; i < Pattern.Count; i++) Pattern[i] = true;
         await Js.InvokeVoidAsync("StrudelSetCode", track.ToLower());
         await Js.InvokeVoidAsync("StrudelPlay");
     }
