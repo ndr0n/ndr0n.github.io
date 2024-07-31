@@ -12,7 +12,7 @@
     <MudItem xs="3">
         <MudButton OnClick="@Reset" Variant="Variant.Outlined" Color="Color.Primary">RESET</MudButton>
     </MudItem>
-    <MudItem xs="3" Style="margin-top:-17px;">
+    <MudItem xs="3" Style="margin-top:-15px;">
         <MudSelect T="string" Value="@Track" Dense="true" Variant="Variant.Text" Label="Track" ValueChanged="@(s => SetTrack(s))">
             <MudSelectItem Value="@("Scanned")"/>
             <MudSelectItem Value="@("Restructured")"/>
@@ -20,7 +20,7 @@
     </MudItem>
 </MudGrid>
 
-<div id="strudel" style="max-height: 85vh; overflow-y: scroll;"></div>
+<div id="strudel" style="max-height: 90vh; overflow-y: scroll;"></div>
 
 <MudGrid>
     <MudItem xs="3">
